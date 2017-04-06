@@ -10,6 +10,5 @@ return array(
 	'DB_USER'		=>'root',
 	'DB_PWD'		=>'admin',
 	'DB_PREFIX'		=>'pipe_',//表前缀
-
 	'SHOW_PAGE_TRACE'=>true，
 );
