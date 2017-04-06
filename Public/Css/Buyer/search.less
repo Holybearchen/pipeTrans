@@ -1,0 +1,54 @@
+// 搜索页面的css，主要是列表的css
+@import "./public.less";
+.searchItem{
+	height: 431px;
+	width: 24%;
+	margin-right: 0.5%;
+	margin-bottom: 20px;
+	overflow: hidden;
+	position: relative;
+	display: inline-block;
+	a:hover{color: :#fff;}
+	.images{height: 53%;width: 100%;overflow: hidden;}
+	.order{
+		position: absolute;
+		height: 42px;
+		width: 100%;
+		bottom: -42px;
+		text-align: center;
+		background-color: #a66e99;
+		.font(normal,16px,2.5,'Microsoft YaHei');
+		a{color: #fff;}
+		p{
+			span{
+				margin-left: 10px;
+			}
+		}
+	}
+	.box{position: absolute;top: 0;height:100%;width:100%;.transition(all,0.3s,ease,0s);}
+	figcaption{
+		padding-top: 1em;
+		height: 45%;
+		border:1px solid rgba(200, 200, 200, 0.2);
+		.info{
+			width: 80%;
+			height: 95%;
+			margin:0 auto;
+			p{.afterclear}
+			.tripName	{.font(normal,18px,2,'Microsoft YaHei');}
+			.tripDate	{.font(normal,14px,1.5,'Microsoft YaHei');height: 55%;}
+			.tripExp	{.font(normal,14px,1.5,'Microsoft YaHei');display: inline-block;
+							span{ .font(bold,25px,0.5,'Microsoft YaHei');}
+						}
+						.tripLocal{.font(normal,14px,1.5,'Microsoft YaHei');display: inline-block;float:right;}
+			}
+	}
+	&:hover{
+		.box{top: -42px;}
+		box-shadow: 0 12px 46px rgba(0, 0, 0, 0.175);
+		figcaption{
+			border-bottom:none;
+		}
+		
+	}
+}

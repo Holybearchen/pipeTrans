@@ -1,0 +1,55 @@
+@import "./base.less";
+@import "./animate.min.less";
+.header{
+	background-color:#fff;
+	width:100%;
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:1001;
+	-moz-box-shadow:0 -11px 32px 4px rgba(0, 0, 0, 0.2);
+	//Safariand Google chrome10.0-  
+	-webkit-box-shadow:0 -11px 32px 4px rgba(0, 0, 0, 0.2);
+	//Firefox4.0+、 Google chrome 10.0+ 、 Oprea10.5+ and IE9  
+	box-shadow:0 -11px 32px 4px rgba(0, 0, 0, 0.2);
+	a{color: #000}
+	a:hover{text-decoration: none;}
+	ul{
+			margin-bottom: 0;
+	}
+	li{
+		float: left;
+		line-height: 40px;
+		a{
+		padding:0 5px;
+		}
+	}
+}
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+	
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+	
+	
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+	// public
+	.header{
+		#J_smallTopNav{display: block;}
+		#searchForm{float: none; margin-top:10px;}
+	}
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {
+    
+}
