@@ -1,0 +1,51 @@
+.my_content {
+	margin: 0 8%;
+}
+
+.tab_time {
+	color: #999;
+}
+
+table, th {
+	text-align: center;
+}
+
+.pdeta {
+	text-align: right;
+	margin: -5px auto 0;
+	width: 208px;
+}
+
+.pdeta dt {
+	margin: 0;
+	padding: 0;
+	border-bottom: 1px dotted #CECECE;
+	height: 30px;
+	line-height: 30px;
+	display: block;
+}
+
+.pdeta .fore1 {
+	float: left;
+	width: 85px;
+}
+
+.pdeta .fore2 {
+	float: left;
+	width: 70px;
+	text-align: left;
+	margin-left: 10px;
+}
+
+.pdeta dt .fore2 {
+	color: #e33a3c;
+	font-weight: 700;
+}
+
+.state {
+	color: #71b247;
+}
+
+.money {
+	color: #e33a3c;
+}
