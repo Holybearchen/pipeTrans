@@ -31,16 +31,16 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="<{:U('Index/index')}>">卖家首页</a></li>
                 <li><a href="<{:U('Item/itemIndex')}>">商品管理</a></li>
-                <li><a href="#">合同中心</a></li>
+                <!-- <li><a href="<{:U('Contract/contractIndex')}>">合同中心</a></li> -->
                 <li class="active"><a href="<{:U('Order/index')}>">订单中心</a></li>
-                <li><a href="#">信息统计</a></li>
+                <li><a href="<{:U('Statistics/statisticsIndex')}>">信息统计</a></li>
+                <li><a href="<{:U('Complain/complainIndex')}>">投诉处理</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="<{:U('Info/companyInfo')}>">欢迎您, 骆京</a></li>
-                <li><a href="#">退出</a></li>
+                <li><a href="<{:U('Info/companyInfo')}>">欢迎您, <{$Think.session.username}></a></li>
+                <li><a href="<{:U('User/doLogout')}>">退出</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -50,11 +50,9 @@
 	<div class="row">
 		<div class="col-md-2">
 			<div class="list-group">
-  				<a href="__URL__/index" class="list-group-item">
-    				<span class="badge"><{$newcounter[0]['count(*)']}></span>新订单
-  				</a>
-  				<a href="__URL__/ordering" class="list-group-item">执行中</a>
-  				<a href="__URL__/ordered" class="list-group-item active">已完成</a>
+  				<a href="__URL__/index" class="list-group-item text-center">新订单</a>
+  				<a href="__URL__/ordering" class="list-group-item text-center">执行中</a>
+  				<a href="__URL__/ordered" class="list-group-item active text-center">已完成</a>
 			</div>
 		</div>
 
@@ -65,7 +63,9 @@
   				</div>
 
   				<eq name='counter' value='0'>
-	        		<h3>目前没有新订单</h3>
+  					<br>
+	        		<h3>&nbsp&nbsp目前没有已完成的订单</h3>
+	        		<br>
 	        	<else/>
 		  			<table class="table table-hover table-bordered">
 		  				<thead>
@@ -84,7 +84,35 @@
 		        			<volist name='ordered' id='vo'>
 			        			<tr>
 			                		<td><{$vo.orderid}></td>
-			                		<td><{$vo.p-code}></td>
+			                		<td><{$vo.itemname}></td>
+			                		<td><{$vo.name}></td>
+			                		<td>
+			                			<span class="tab_time">
+			                			<{:date('Y-m-d H:i:s', $vo['orderdate'])}>
+			                			</span>
+			                		</td>
+			                		<td>
+			                			<dl class="pdeta">
+											<dt>
+												<div class="fore1">总金额：</div>
+												<div class="fore2">￥<{$vo.totalprice}></div>
+											</dt>
+
+											<div class="fore1">数量：</div>
+											<div class="fore2"><{$vo.quantity}></div>
+										</dl>
+			                		</td>
+			                		<td>
+			                			<span class="state">已完成</span>
+			                		</td>
+			                		<td><a href="__URL__/orderedDetails?orderid=<{$vo.orderid}>">查看</a></td>
+			                	</tr>
+			                </volist>
+
+			                <volist name='commented' id='vo'>
+			        			<tr>
+			                		<td><{$vo.orderid}></td>
+			                		<td><{$vo.itemname}></td>
 			                		<td><{$vo.name}></td>
 			                		<td>
 			                			<span class="tab_time">
@@ -97,7 +125,7 @@
 			                			<dl class="pdeta">
 											<dt>
 												<div class="fore1">总金额：</div>
-												<div class="fore2">￥100000.00</div>
+												<div class="fore2">￥<{$vo.totalprice}></div>
 											</dt>
 
 											<div class="fore1">预付款：</div>
@@ -107,7 +135,7 @@
 			                		<td>
 			                			<span class="state">已完成</span>
 			                		</td>
-			                		<td><a href="__URL__/orderedDetails/id/<{$vo.orderid}>">查看</a></td>
+			                		<td><a href="__URL__/orderedDetails?orderid=<{$vo.orderid}>">查看</a></td>
 			                	</tr>
 			                </volist>
 
@@ -115,22 +143,6 @@
 		  			</table>
 	  			</eq>
 			</div>
-
-			<nav aria-label="Page navigation" style="text-align: center;">
-				<ul class="pagination">
-    				<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-    				<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-    				<li><a href="#">2</a></li>
-    				<li><a href="#">3</a></li>
-    				<li><a href="#">4</a></li>
-    				<li><a href="#">5</a></li>
-    				<li>
-      					<a href="#" aria-label="Next">
-        					<span aria-hidden="true">&raquo;</span>
-      					</a>
-    				</li>
-  				</ul>
-			</nav>
 		</div>
 	</div>
 </div>

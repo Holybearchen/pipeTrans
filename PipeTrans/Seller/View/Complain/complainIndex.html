@@ -7,11 +7,11 @@
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Lib/bootstrap-3.3.7/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/Seller/head.css" />
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/Seller/foot.css" />
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/Seller/my_content.css" />
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/Seller/my_content.css" />
 	<script type="text/javascript" src="__PUBLIC__/Lib/jquery-1.11.2.js"></script>
 	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 	<script type="text/javascript" src="__PUBLIC__/Lib/bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/Js/Seller/modify.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Js/Seller/complain.js"></script>
 </head>
 <body>
 
@@ -32,34 +32,58 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="<{:U('Index/index')}>">卖家首页</a></li>
                 <li><a href="<{:U('Item/itemIndex')}>">商品管理</a></li>
-                <li><a href="#">合同中心</a></li>
+                <!-- <li><a href="<{:U('Contract/contractIndex')}>">合同中心</a></li> -->
                 <li><a href="<{:U('Order/index')}>">订单中心</a></li>
-                <li><a href="#">信息统计</a></li>
+                <li><a href="<{:U('Statistics/statisticsIndex')}>">信息统计</a></li>
+                <li class="active"><a href="<{:U('Complain/complainIndex')}>">投诉处理</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="<{:U('Info/companyInfo')}>">欢迎您, 骆京</a></li>
-                <li><a href="#">退出</a></li>
+                <li><a href="<{:U('Info/companyInfo')}>">欢迎您, <{$Think.session.username}></a></li>
+                <li><a href="<{:U('User/doLogout')}>">退出</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
 
 <div class="my_content">
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="col-md-5">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        luojing
-                    </div>
-                </div>
-            </div>
-            Basic panel example
-        </div>
-    </div>
+	<div class="row">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+    			<h3 class="panel-title">投诉处理</h3>
+  			</div>
+
+  			<eq name='counter' value='0'>
+  				<br>
+	        	<h3>&nbsp&nbsp目前没有投诉信息</h3>
+	        	<br>
+	        <else/>
+		  		<table class="table table-hover table-bordered">
+		  			<thead>
+		        		<tr>
+		            		<th>买家姓名</th>
+		            		<th>买家电话</th>
+		            		<th>投诉内容</th>
+		            		<th>操作</th>
+		        		</tr>
+		        	</thead>
+		        	<tbody>
+
+		        		<volist name='complains' id='vo'>
+			        		<tr>
+			                	<td><{$vo.username}></td>
+			                	<td><{$vo.phonenumber}></td>
+			                	<td class="text-left"><{$vo.content}></td>
+			                	<td><button type="button" class="btn btn-link" onclick="dealwith(<{$vo.complainid}>)">处理完成</button></td>
+			                </tr>
+						</volist>
+							
+	        		</tbody>
+	  			</table>
+	  		</eq>
+		</div>	
+	</div>
 </div>
 
 <nav class="navbar navbar-fixed-bottom navbar-inverse" role="navigation">
@@ -67,5 +91,6 @@
         2017 &nbsp Pipe
     </div>
 </nav>
+
 </body>
 </html>

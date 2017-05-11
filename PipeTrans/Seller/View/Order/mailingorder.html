@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-	<meta charset="UTF-8">
-	<title>index</title>
-	<!-- 新 Bootstrap 核心 CSS 文件 -->
-	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Lib/bootstrap-3.3.7/dist/css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/Seller/head.css" />
-	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/Seller/foot.css" />
+    <meta charset="UTF-8">
+    <title>index</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Lib/bootstrap-3.3.7/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/Seller/head.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/Seller/foot.css" />
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/Seller/my_content.css" />
-	<script type="text/javascript" src="__PUBLIC__/Lib/jquery-1.11.2.js"></script>
-	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-	<script type="text/javascript" src="__PUBLIC__/Lib/bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Lib/jquery-1.11.2.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script type="text/javascript" src="__PUBLIC__/Lib/bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="__PUBLIC__/Js/Seller/modify.js"></script>
     <script type="text/javascript" src="__PUBLIC__/Js/Seller/orderinfo.js"></script>
 </head>
@@ -68,75 +68,71 @@
                     <div class="row">
                         <div class="col-md-1"></div>
                         <div class="col-md-2 text-right"><strong>订单编号：</strong></div>
-                        <div class="col-md-3 text-left"><{$detail['orderid']}></div>
+                        <div class="col-md-3 text-left"><{$mailing['orderid']}></div>
                         <div class="col-md-2 text-right"><strong>买家姓名：</strong></div>
-                        <div class="col-md-4 text-left"><{$detail['name']}></div>
+                        <div class="col-md-4 text-left"><{$mailing['name']}></div>
                     </div>
                     <br/>
                     <div class="row">
                         <div class="col-md-1"></div>
                         <div class="col-md-2 text-right"><strong>订单商品：</strong></div>
-                        <div class="col-md-9 text-left"><{$detail['itemname']}></div>
+                        <div class="col-md-9 text-left"><{$mailing['itemname']}></div>
                     </div>
                     <br/>
                     <div class="row">
                         <div class="col-md-1"></div>
                         <div class="col-md-2 text-right"><strong>商品单价：</strong></div>
-                        <div class="col-md-3 text-left money">￥<{$order['price']}></div>
+                        <div class="col-md-3 text-left money">￥<{$mailingorder['price']}></div>
                         <div class="col-md-2 text-right"><strong>订货数量：</strong></div>
-                        <div class="col-md-4 text-left"><{$detail['quantity']}></div>
+                        <div class="col-md-4 text-left"><{$mailing['quantity']}></div>
                     </div>
                     <br/>
                     <div class="row">
                         <div class="col-md-1"></div>
                         <div class="col-md-2 text-right"><strong>收货地址：</strong></div>
-                        <div class="col-md-9 text-left"><{$detail['province']}><{$detail['city']}><{$detail['area']}><{$detail['address']}></div>
+                        <div class="col-md-9 text-left"><{$mailing['province']}><{$mailing['city']}><{$mailing['area']}><{$mailing['address']}></div>
                     </div>
                     <br/>
                     <div class="row">
                         <div class="col-md-1"></div>
                         <div class="col-md-2 text-right"><strong>联系电话：</strong></div>
-                        <div class="col-md-9 text-left"><{$detail['phone']}></div>
+                        <div class="col-md-9 text-left"><{$mailing['phone']}></div>
                     </div>
                     <br/>
                     <div class="row">
                         <div class="col-md-1"></div>
                         <div class="col-md-2 text-right"><strong>总金额：</strong></div>
-                        <div class="col-md-3 text-left money">￥<{$detail['totalprice']}></div>
+                        <div class="col-md-3 text-left money">￥<{$mailing['totalprice']}></div>
                         <div class="col-md-2 text-right"><strong>运费：</strong></div>
-                        <div class="col-md-4 text-left money">￥<{$detail['freight']}></div>
+                        <div class="col-md-4 text-left money">￥<{$mailing['freight']}></div>
                     </div>
                     <br/>
                     <div class="row">
                         <div class="col-md-1"></div>
                         <div class="col-md-2 text-right"><strong>下单时间：</strong></div>
-                        <div class="col-md-3 text-left"><{:date('Y-m-d H:i:s', (int)$detail['orderdate'])}>
+                        <div class="col-md-3 text-left"><{:date('Y-m-d H:i:s', (int)$mailing['orderdate'])}>
                         </div>
                         <div class="col-md-2 text-right"><strong>订单状态：</strong></div>
-                        <div class="col-md-4 text-left state">待发货</div>
+                        <div class="col-md-4 text-left state">派送中</div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-md-1"></div>
                         <div class="col-md-2 text-right"><strong>物流编号：</strong></div>
-                        <div class="col-md-3 text-left">
-                            <input type="text" class="form-control" id="tracknumber" placeholder="请输入物流编号">
-                        </div>
+                        <div class="col-md-3 text-left"><{$mailing['tracknumber']}></div>
                         <div class="col-md-2 text-right"><strong>物流公司：</strong></div>
-                        <div class="col-md-3 text-left">
-                            <input type="text" class="form-control" id="trackcompany" placeholder="请输入物流公司名称">
-                        </div>
+                        <div class="col-md-3 text-left"><{$mailing['trackcompany']}></div>
                         <div class="col-md-1"></div>
                     </div>
-                    
-
-                    <br/>
-                    <br/>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-2 text-right"><strong>发货时间：</strong></div>
+                        <div class="col-md-9 text-left"><{:date('Y-m-d H:i:s', (int)$mailing['send-time'])}></div>
+                    </div>
                     <br/>
                     <div class="row text-center">
-                        <button type="button" class="btn btn-link">查看合同</button>
-                        <!-- <button type="button" class="btn btn-primary" id="receivemoney">收到预付款</button> -->
-                        <button type="button" class="btn btn-primary" id="send" onclick="senditems(<{$detail.orderid}>)">发货</button>
+                        <a href="/PipeTrans/index.php/common/Contract/detail/orderid/<{$mailing['orderid']}>">查看合同</a>
                     </div>
                 </div>
             </div>
