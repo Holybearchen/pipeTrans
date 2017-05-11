@@ -1,62 +1,43 @@
-@import "../Public/public.less";
-.SearchArea{
-	.top{
-		padding-top: 30px;
-	}
-	.searchWarp{
-		margin:0 auto;
-		width: 50%;
-	}
-	.searchInput{
-		width: 490px;
-		height: 27px;
-	}
-	.searchBtn{
-		height: 27px;
-   	 	width: 89px;
-   	 	button{
-   	 		width: 100%;
-   	 		height: 100%;
-   	 	}
-	}
-	.searchPanel{
-		height: 35px;
-		padding: 4px;
-		background-color: red;
-	}
-	.logo{
-		width: 200px;
-		height: 100px;
-		.fl;
-	}
-	.searchPanel{
-		.afterclear;
-		form{
-			.afterclear;
-		}
-		.searchInputWrap{
-			.fl;
-		}
-		.searchBtn{
-			.fl;
-		}
-	}
-}
+@import "./public.less";
 .bannerSection{
-	background-color: #EFEFEF;
+	// background-color: #EFEFEF;
 	padding-top: 5px;
+	padding-bottom: 20px;
+	overflow: hidden;
+	background-color: rgba(220,220,220,0.2);
 	.banner{
+		overflow: hidden;
 		width: 887px;
 		height: 400px;
+		position: relative;
+		border: 1px solid rgba(176, 176, 176, 0.23);
 		img{
 			width: 100%;
 			height: 100%;
+		}
+		.flex-control-nav{
+			bottom: 5px;
+		}
+		.flex-direction-nav a{
+			opacity: 0.5;
+			height: 43px;
+		}
+		.flex-direction-nav  {
+			.flex-next{
+				right: 0;
+			}
+			.flex-prev{
+				left: 0;
+			}
 		}
 	}
 	.userInfo{
 		width: 277px;
 		height: 400px;
-		background-color: gray;
+		background: url('../../Images/buyer/index/log-bg.png');
+		background-size: cover;
+		background-color: rgba(200,200,200,0.3);
+		border: 3px solid rgba(155,155,155,0.1);
 		.infoBody{
 			padding:20px;
 			padding-top: 90px;
@@ -72,5 +53,89 @@
 					height: 100%;}
 			}
 		}
+	}
+}
+.propSection{
+	background:url('../../Images/buyer/index/t-bg.jpg');
+	height: 300px;
+	.propList{
+		height: 100%;
+		padding-top:30px;
+		padding-bottom: 30px;
+		ul{
+			.afterclear;
+		}
+		li{
+			height: 100%;
+			float: left;
+			overflow: hidden;
+			width: 19%;
+			position: relative;
+			margin-right: 1%;
+
+			figure{
+				.text-center;
+				position: absolute;
+				top: 0;
+				height: 100%;
+				width: 100%;
+				background-color: rgba(0, 0, 0, 0.05);
+				// margin-left: 20px;
+				img{
+					// width: 100%;
+					padding-top: 17%;
+					    width: 51px;
+    					height: 97px;
+				}
+				figcaption{
+					padding-top:3%; 
+					height: 47;
+					.info{
+						width: 85%;
+						margin:0 auto;
+						.tripName	{.font(normal,16px,2,'Microsoft YaHei');}
+						.tripDate	{.font(normal,14px,1.5,'Microsoft YaHei');height: 90px;}
+						.tripExp	{.font(normal,14px,1.5,'Microsoft YaHei');display: inline-block;
+								  		span{
+								  				.font(normal,25px,0.5,'Microsoft YaHei');
+								  			}
+								  	}
+						.tripLocal{.font(normal,14px,1.5,'Microsoft YaHei');display: inline-block;float:right;}
+					}
+				}
+			}
+		}
+	}
+}
+.compSection{
+	padding-top: 53px;
+	padding-bottom: 83px;
+	color: #fff;
+	a{color: #fff;}
+	background: url('../../Images/buyer/index/bg_03.jpg') no-repeat center center;
+	background-size: cover;
+	.others-inner{
+		width: 1000px;
+		max-width: 90%;
+		margin: 0 auto;
+		.otherLeft{
+			float: left;
+			width: 50%;
+			ul{
+				float: left;
+				width: 50%; 
+				.font(normal,16px,2.5em,'Microsoft YaHei');
+			}
+		}
+		.otherRight{
+			width: 50%;
+			float: right;
+			p{
+				display: inline-block;
+				float: right;
+				span,img{float: left;margin-right: 5px;}
+			}
+		}
+		
 	}
 }
