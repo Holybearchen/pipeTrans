@@ -86,6 +86,20 @@ class StatisticsController extends Controller {
 	public function statisticsItem() {
 		if (isset($_SESSION['username']) && $_SESSION['username'] != '')
 		{
+			$sellerid = $_SESSION['userid'];
+
+			$startdate = I('post.startdate');
+			$enddate = I('post.enddate');
+
+			if ($searchyear == '')
+			{
+				$year = date("Y");
+			}
+			else
+			{
+				$year = $searchyear;
+			}
+
 			$this->display();
 		}
 		else
