@@ -11,3 +11,7 @@ function submitmodify() {
 			window.location.reload();
 		});
 }
+
+function undochange() {
+	window.location.reload();
+}

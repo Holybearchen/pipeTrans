@@ -91,13 +91,13 @@ class StatisticsController extends Controller {
 			$startdate = I('post.startdate');
 			$enddate = I('post.enddate');
 
-			if ($searchyear == '')
+			if ($startdate == '')
 			{
-				$year = date("Y");
+				$date1 = date("Y");
 			}
 			else
 			{
-				$year = $searchyear;
+				$date1 = $startdate;
 			}
 
 			$this->display();
