@@ -10514,6 +10514,10 @@ html {
   width: 100%;
   height: 100%;
 }
+.section {
+  width: 100%;
+  min-width: 1180px;
+}
 .w1180 {
   width: 1180px;
   margin: 0 auto;

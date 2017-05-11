@@ -1,0 +1,160 @@
+//订单详情页的css
+@import "./public.less";
+.detail-box{
+	margin-top: 30px;
+	min-height: 230px;
+	border:1px solid #DDD;
+	border-bottom: none;
+	overflow: hidden;
+	width: 100%;
+	tr{
+		border-bottom: 1px solid #DDD;
+	}
+
+	.font(normal,12px,1.5em,'Microsoft YaHei');
+	.afterclear;
+	.inner{
+		padding:20px;
+	}
+	.order-info{
+		width: 28%;
+		height: 280px;
+		.order-info-head{
+			border-bottom: 1px solid #DDD;
+		}
+		.order-info-body{
+			li{
+				margin-top: 10px;
+				.title{
+					.fl;
+					display: inline-block;
+	    			vertical-align: top;
+				}
+				.con{
+					width: 150px;
+	    			display: inline-block;
+	    			margin-left: 80px;
+				}
+			}
+			
+		}
+	}
+	.order-status{
+		width: 71%;
+		height: 280px;
+		border-left: 1px solid #DDD;
+		// border-bottom: 1px solid #DDD;
+	}
+}
+.order-list-box{
+	margin-top:30px;
+	.order{
+		margin-top: 20px;
+		border:1px solid #DDD;
+	}
+	.package{
+		border:1px solid #DDD;
+		border-top: none;
+	}
+	.order-panel{
+		
+		.list-head{
+
+			border:1px solid #DDD;
+			border-bottom: none;
+			.afterclear;
+			padding:10px;
+			&>div{
+				.fl;
+				.text-center;
+			}
+			.list-head-item{
+				width: 370px;
+			}
+			.list-head-price{
+				width: 140px;
+			}
+			.list-head-count{
+				width: 125px;
+			}
+			.list-head-pay{
+				width: 125px
+			}
+			.list-head-status{
+				width: 200px;
+			}
+			.list-head-option{
+				width: 150px;
+			}
+		}
+		.show-head{
+			border: none;
+			background: #eee;
+		}
+		.list-body{
+			.package-head{
+				padding: 10px;
+			    border-bottom: 1px solid #eee;
+			    background-color: rgb(212, 239, 255);
+			    &>span{
+			    	margin-right: 20px;
+			    }
+			}
+			.package-item{
+				.afterclear;
+				padding: 10px;
+			    height: 84px;
+			    line-height: 67px;
+				&>div{.fl}
+				.item-item{
+					width: 400px;
+					img{
+						width: 40%;
+						height: 100%;
+					}
+				}
+				.item-price{
+					width:140px;
+					.text-center;
+				}
+				.item-count{
+					width:125px;
+					.text-center;
+				}
+				.item-pay{
+					width:125px;
+					.text-center;
+				}
+				.item-status{
+					width:200px;
+					.text-center;
+				}
+				.item-option{
+					width: 150px;
+					.text-center;
+				}
+			}
+		}
+	}
+}
+.pay-box{
+	background-color: #F3F3F3;
+	margin-top: 30px;
+	.inner{
+		padding:20px;
+		.line{
+			margin-top: 10px;
+			width: 100%;
+			.name{
+				display: inline-block;
+				width: 70%;
+				.text-right;
+			}
+			.value{
+				display: inline-block;
+				width: 25%;
+				.text-right
+			}
+		}
+	}
+}

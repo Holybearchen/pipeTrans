@@ -1,0 +1,67 @@
+<html>
+<head>
+	<title>PipeTrans</title>
+	<import type='css' file='Css.Buyer.item'/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Lib/FlexSlider2/flexslider.css">
+    <script src="__PUBLIC__/Lib/jquery-1.11.2.js"></script>
+    <script src="__PUBLIC__/Lib/FlexSlider2/jquery.flexslider-min.js"></script>
+    <script src="__PUBLIC__/Lib/bootstrap-3.3.7/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/Lib/distpicker/docs/js/distpicker.js"></script>
+</head>
+<body>
+	<include file="./PipeTrans/Home/View/tpl/header.html" />
+    <include file="./PipeTrans/Home/View/tpl/top-search1.html" /> 
+    <div class="section">
+        <div class="w1180">
+        <!-- 订单商品 -->
+            <div class="collection-box">
+                <div class="collection-panel">
+                    <div class="collection-head">
+                        我的收藏
+                    </div>
+                    <div class="collection-list">
+                        <ul class="collections">
+                            <volist name='collections' id='vo'>
+                                <li>
+                                    <a class="delateBtn" name="<{$vo.collectionid}>">
+                                        x
+                                    </a>
+                                    <div class="img-box">
+                                        <a href="__APP__/home/item/detail/?id=<{$vo.itemid}>">                        
+                                            <img src="__PUBLIC__/Images/Public/logo.png">
+                                        </a>
+                                    </div>
+                                    <div class="item-title"><a href=""><{$vo.itemname}></a></div>
+                                    <div class="price-container">
+                                        <span><{$vo.price}></span>
+                                    </div>
+                                    <div class="tip-container"></div>
+                                </li>
+                            </volist>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+    </div>
+	<div class="footer" style="margin-top:2000px;">
+		<p>www.cctc.com</p>
+	</div>
+    <script type="text/javascript">
+        // 删除
+        $('.delateBtn').click(function(){
+            var iid=$(this).attr('name');
+            var btn=$(this);
+             $.get('__APP__/home/Item/removeCollection',{'id':iid},function(data){
+                if(data=='suc'){
+                    console.log( $(this).parent());
+                    btn.parent().remove();
+                    alert("删除成功");
+                }else{
+                     alert("删除失败");
+                }
+            });
+        });   
+    </script>
+</body>
+</html>

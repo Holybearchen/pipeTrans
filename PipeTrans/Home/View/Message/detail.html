@@ -1,0 +1,229 @@
+<html>
+<head>
+	<title>PipeTrans</title>
+	<import type='css' file='Css.Buyer.order'/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Lib/FlexSlider2/flexslider.css">
+    <script src="__PUBLIC__/Lib/jquery-1.11.2.js"></script>
+    <script src="__PUBLIC__/Lib/FlexSlider2/jquery.flexslider-min.js"></script>
+    <script src="__PUBLIC__/Lib/bootstrap-3.3.7/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/Lib/distpicker/docs/js/distpicker.js"></script>
+</head>
+<body>
+	<div class="header section" id="index-header">
+		<div class=" w1180">
+				<ul class="fl">
+					<li><a href="">登陆</a></li>
+					<li><a href="">注册</a></li>
+				</ul>
+				<ul class="fr navlist">
+					<li><a href="">订单处理</a></li>
+					<li><a href="">消息中心</a></li>
+					<li><a href="">我的收藏</a></li>
+					<li>08511231311</li>
+				</ul>
+		</div>
+	</div>
+	<div class="section topSection searchArea">
+        <div class="w1180">
+            <div class="top">
+                <div class="logo">
+                    <img src="__PUBLIC__/Images/Public/logo.png">
+                </div>
+                <div class="searchArea">
+                    <div class="searchWarp">
+                        <div class="searchTab">
+                        </div>
+                        <div class="searchPanel">
+                            <form>
+                                <div class="searchInputWrap">
+                                    <input class="searchInput" name="searchItem" aria-label="请输入搜索文字">
+                                </div>
+                                <div class="searchBtn">
+                                    <button type="submit">搜索</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+	<div class="section stepSection">
+		<div class="w1180">
+             <div class="step-wrap">
+                <ol class="stepBar">
+                    <li class="step-first">
+                        <div>
+                            <div class="step-name">填写订单</div>
+                            <div class="step-no">1</div>
+                            <div class="step-date">2017-02-26 14:00:09</div>
+                        </div>
+                    </li>
+                     <li class="step">
+                        <div class="step-done">
+                            <div class="step-name">等待确认</div>
+                            <div class="step-no">2</div>
+                            <div class="step-date">2017-02-26 14:00:09</div>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <div class="">
+                            <div class="step-name">生成合同</div>
+                            <div class="step-no">3</div>
+                             <div class="step-date">2017-02-26 14:00:09</div>
+                        </div>
+                    </li>
+                    <li class="step">
+                         <div class="">
+                            <div class="step-name">确认收货</div>
+                            <div class="step-no">4</div>
+                            <div class="step-date">2017-02-26 14:00:09</div>
+                        </div>
+                    </li>
+                    <li class="step-last">
+                         <div class="">
+                            <div class="step-name">评价</div>
+                            <div class="step-no">5</div>
+                            <div class="step-date">2017-02-26 14:00:09</div>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+	</div>
+    <div class="section">
+        <div class="w1180">
+            <table class="box detail-box">
+                <tr>
+                    <td class="order-info fl">
+                        <div class="order-info-head inner">
+                            订单信息
+                        </div>
+                        <div class="order-info-body inner">
+                            <ul>
+                                <li>
+                                    <div class="title"><span>收货地址:</span></div>
+                                    <div class="con">王大锤，1323123123123，陕西省，西安市，莲湖区，习惯啊大叔大叔的</div>
+                                </li>
+                                 <li>
+                                    <div class="title"><span>买家留言:</span></div>
+                                    <div class="con">你好</div>
+                                </li>
+                                 <li>
+                                    <div class="title"><span>订单编号:</span></div>
+                                    <div class="con">2580460365467948</div>
+                                </li>
+                                 <li>
+                                    <div class="title"><span>商家:</span></div>
+                                    <div class="con">AAA公司</div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </td >
+                    <td  class="order-status fl">
+                        <div class="inner">
+                            <div class="status">订单状态:交易成功</div>
+                            <div class="trans">物流:XX快递 运单号：122313</div>
+                            <div class="option">您可以:<a href="">下载合同</a></div>
+                        </div>
+                    </td >
+                </tr>
+            </table>
+        <!-- 订单商品 -->
+            <div class="order-list-box">
+                <div class="order-panel">
+                    <div class="list-head">
+                        <div class="list-head-item">
+                            商品
+                        </div>
+                        <div class="list-head-price">
+                            单价
+                        </div>
+                        <div class="list-head-count">
+                            数量
+                        </div>
+                        <div class="list-head-pay">
+                            总价
+                        </div>
+                        <div class="list-head-status">
+                            状态
+                        </div>
+                         <div class="list-head-option">
+                            操作
+                        </div>
+                    </div>
+                    <div class="list-body">
+                        <div class="package">
+                            <div class="package-head">
+                                <span>包裹1</span>
+                                <span>韵达快递</span>
+                                <span>运单号：123123123</span>
+                                <span>2017-3-01 13:30:53</span>
+                            </div>
+                            <div class="package-item">
+                                <div class="item-item">
+                                    <img src="__PUBLIC__/Images/Public/logo.png">
+                                    啊啊啊啊啊啊啊啊啊啊
+                                </div>
+                                <div class="item-price">500</div>
+                                <div class="item-count">5</div>
+                                <div class="item-pay">2500</div>
+                                <div class="item-status">交易成功</div>
+                                <div class="item-option"><a href="">添加评论</a></div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        <!-- 价格显示 -->
+            <div class="pay-box">
+                <div class="inner">
+                    <div class="line">
+                        <div class="name">
+                            商品总价
+                        </div>
+                        <div class="value">
+                            ￥35.50
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div class="name">
+                            运费
+                        </div>
+                        <div class="value">
+                            ￥35.50
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div class="name">
+                            订单总价
+                        </div>
+                        <div class="value">
+                            ￥35.50
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div class="name">
+                            实付款
+                        </div>
+                        <div class="value">
+                            ￥35.50
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	<div class="footer" style="margin-top:2000px;">
+		<p>www.cctc.com</p>
+	</div>
+
+    <script type="text/javascript">
+      $("#distpicker1").distpicker();
+    </script>
+</body>
+</html>

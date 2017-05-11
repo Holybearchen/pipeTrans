@@ -1,0 +1,45 @@
+<html>
+<head>
+	<title>PipeTrans</title>
+	<import type='css' file='Css.Buyer.search'/>
+	<import type='js'  file='Js.Buyer.123'/>
+</head>
+<body>
+	<include file="./PipeTrans/Home/View/tpl/header.html" />
+	<include file="./PipeTrans/Home/View/tpl/top-search1.html" />
+	<div class="section graySection listSection">
+		<div class="w1180">
+            <volist name='data' id='vo'>
+                <figure class="searchItem">
+                    <div class="box">
+                        <div class="images">
+                            <a href="__APP__/home/item/detail/?id=<{$vo.itemid}>">
+                                <img src="__PUBLIC__/Images/Public/temp2.png">
+                        	</a>
+                        </div>
+                        <figcaption>
+                            <div class="info">
+                                <p class="tripName"><{$vo.itemname}></p>
+                                <p class="tripDate fontGray"><{$vo.username}></p>
+                                <p class="tripExp fontPink"><span class="fontPurple"><{$vo.price}></span>元/米</p>
+                                <p class="tripLocal"><i class="icon-map-marker normalSize fontPink"></i>广州</p>
+                            </div>
+                        </figcaption>
+                        <div class="order purple fontWhite">
+                            <a class="fontWhite" href="index.html"><p>立即预定<span><i class="icon-play"></i></span></p></a>
+                        </div>
+                    </div>
+                </figure>
+            </volist>
+		</div>
+	</div>
+	<div class="section graySection">
+		<div class="w1180">
+
+		</div>
+	</div>
+	<div class="footer">
+		<p>www.cctc.com</p>
+	</div>
+</body>
+</html>

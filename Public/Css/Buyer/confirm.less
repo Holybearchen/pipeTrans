@@ -1,0 +1,125 @@
+//商品详情页的css
+@import "./public.less";
+.confirmSection{
+	.address{
+		padding-top: 30px;
+		border-bottom: 1px solid #eee;
+		padding-bottom: 30px;
+		border-top: 1px solid #eee;
+		h2{
+			.font(bold,16px,1.2em,'Microsoft YaHei');
+			padding:10px;
+			margin-bottom: 0;
+			width: 50%;
+			background-color: #ddd;
+		}
+		.address-con-wrap{
+			border:5px solid #eee;
+			border-top: none;
+			padding:10px;
+			width: 50%;
+		}
+	}
+	.sub-title{
+		.font(bold,16px,1.2em,'Microsoft YaHei');
+	}
+	.item{
+		display: block;
+		padding-bottom: 10px;
+		.afterclear;
+		.item-label{
+			.fl;
+		}
+		.input-wrap{
+			.fl;
+			.afterclear;
+			margin-right: 10px;
+		}
+		.item-con{
+			margin-left: 100px;
+			.input-box{
+				display: inline-block;
+			}
+			.i-te{
+				input{width: 200px;}
+				
+			}
+			.i-te-ph{
+
+				input{width: 100px;}
+				
+			}
+			.i-ta{
+				textarea{
+					padding: 10px;
+    				width: 302px;
+				}
+				
+			}
+		}
+	}
+	// 确认订单信息
+	.order-info{
+		.order-th{
+			.text-center;
+			border-bottom: 3px solid #b2d1ff;
+			.order-td{
+				display: inline-block;
+				width: 200px;
+				h3{
+					.font(normal,16px,1.2em,'Microsoft YaHei');
+					color: #6C6C6C;
+				}
+			}
+		}
+		.order-item{
+			.text-center;
+			padding:10px;
+			border-bottom: 1px solid #eee;
+			border-top: 1px solid #eee;
+			.order-info-item{
+				display: inline-block;
+				width: 200px;
+			}
+			.item-name{
+				.text-left;
+				img{
+					width: 60px;
+					height: 60px;
+				}
+				span{
+					width: 100px;
+					display: inline-block;
+				}
+			}
+		}
+	}
+	.order-info-confirm{
+		.afterclear;
+		.pay-info-wrap{
+			.fr;
+			border:3px solid #ddd;
+			height: 145px;
+		    width: 300px;
+		    float: right;
+		    margin-top: 20px;
+		    padding:20px;
+		}
+	}
+	.pay-btn{
+		.afterclear;
+		.pay-btn-wrap{
+			.fr;
+			width: 125px;
+		    height: 38px;
+		    text-align: center;
+		    line-height: 38px;
+		    margin-top: 20px;
+		    background-color: rgba(236, 39, 39, 0.68);
+		    a{
+		    	color:#fff;
+		    }
+		}
+	}
+}
+	

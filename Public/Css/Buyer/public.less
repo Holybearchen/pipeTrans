@@ -1,33 +1,53 @@
 @import "../Public/public.less";
-.SearchArea{
+@green:#6bd1a0;
+@pink:#bf7eb0;
+.searchArea{
+	padding-top: 12px;
+}
+.SearchArea,.topSection{
 	.top{
 		padding-top: 30px;
+		.afterclear;
+		padding-bottom: 30px;
 	}
 	.searchWarp{
 		margin:0 auto;
 		width: 50%;
 	}
+	.searchPanel{
+
+	}
 	.searchInput{
 		width: 490px;
 		height: 27px;
+		border:none;
 	}
 	.searchBtn{
 		height: 27px;
    	 	width: 89px;
    	 	button{
+   	 		background-color: @green;
+   	 		color: #fff;
    	 		width: 100%;
    	 		height: 100%;
+   	 		border: none;
+    		border-radius: 0 11px 11px 0%;
    	 	}
 	}
 	.searchPanel{
 		height: 35px;
 		padding: 4px;
-		background-color: red;
+		background-color:@green;
+		border-radius: 0 11px 11px 0%;
 	}
 	.logo{
-		width: 200px;
-		height: 100px;
+		width: 142px;
+		height: 58px;
 		.fl;
+		img{
+			width: 100%;
+			height: 100%;
+		}
 	}
 	.searchPanel{
 		.afterclear;
@@ -39,6 +59,56 @@
 		}
 		.searchBtn{
 			.fl;
+		}
+	}
+	
+}
+.step-wrap{
+	.logo{
+		width: 142px;
+		height: 58px;
+		.fl;
+		img{
+			width: 100%;
+			height: 100%;
+		}
+	}
+	ol{
+		.afterclear;
+		li{
+			width: 182px;
+			.text-center;
+			.fl;
+			.stepname{
+				.font(bold,12px,1.5em,'Microsoft YaHei');
+				padding: 3px 0;
+				 color: #888;
+			}
+			&.step-first{
+				.step-no{
+					color: rgba(255, 255, 255, 0);
+					background-position: 50% -204px;
+				}
+			}
+			&.step-last{
+				.step-no{
+					background-position: 50% -136px;
+				}
+			}
+			.step-done{
+				.step-no{
+				color: rgba(255, 255, 255, 0);
+					background-position:50% -170px;
+				}
+			}
+			
+			.step-no{
+				background:url("../../Images/Public/step.png"); 
+				line-height: 34px;
+				font-size: 18px;
+				background:url("../../Images/Public/step.png") 50% -102px no-repeat;
+				
+			}
 		}
 	}
 }

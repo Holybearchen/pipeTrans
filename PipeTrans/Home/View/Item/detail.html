@@ -1,0 +1,268 @@
+<html>
+<head>
+	<title>PipeTrans</title>
+	<import type='css' file='Css.Buyer.detail'/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Lib/FlexSlider2/flexslider.css">
+    <script src="__PUBLIC__/Lib/jquery-1.11.2.js"></script>
+    <script src="__PUBLIC__/Lib/FlexSlider2/jquery.flexslider-min.js"></script>
+    <script src="__PUBLIC__/Lib/bootstrap-3.3.7/bootstrap.min.js"></script>
+</head>
+<body>
+	<include file="./PipeTrans/Home/View/tpl/header.html" />
+    <include file="./PipeTrans/Home/View/tpl/top-search1.html" />
+	<div class="section introSection">
+		<div class="w1180">
+            <div class="productIntro">
+                <!-- 左边图片 -->
+                <div class="proviewWrap">
+                    <div class="proview">
+                        <div class="mainImg picSlider">
+                            <ul class="slides"> 
+                                <li>
+                                    <a  href=""><img src="__PUBLIC__/Images/buyer/index/images/1.jpg"></a>
+                                </li>
+                                 <li>
+                                    <a href=""><img src="__PUBLIC__/Images/buyer/index/images/2.jpg"></a>
+                                </li>
+                                 <li>
+                                    <a href=""><img src="__PUBLIC__/Images/buyer/index/images/3.jpg"></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="imgList slides-controller">
+                            <a class="list-forward" href=""></a>
+                            <div class="list-wrap">
+                            <ul>
+                                <li>
+                                    <a href=""><img src="__PUBLIC__/Images/buyer/index/images/1.jpg"></a>
+                                </li>
+                                <li>
+                                    <a href=""><img src="__PUBLIC__/Images/buyer/index/images/2.jpg"></a>
+                                </li>
+                                <li>
+                                    <a href=""><img src="__PUBLIC__/Images/buyer/index/images/3.jpg"></a>
+                                </li>
+                            </ul>
+                            </div>
+                            <a class="list-back" href=""></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 右边信息 -->
+                <form id="buy-form" method="POST" action="__APP__/home/order/confirm">
+                    <div class="itemInfoWrap">
+                        <div class="itemName">
+                            <h3><{$item.itemname}></h3>
+                        </div>
+                        <div class="itemSummary">
+                            <div class="price-wrap">
+                                <div class="price">
+                                    <div  class="title">一口价</div >
+                                        <div class="info-body">
+                                            <span class="num content">￥<{$item.price}>/米</span>
+                                            <div class="comment-count">
+                                                <p>累计评价 </p>
+                                                <a href=""><{$commentCount}>条</a> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="address-wrap line">
+                            <div class="address">
+                                <div  class="title">运费</div >
+                                <div class="info-body">
+                                    <span class="content">广东广州</span><span>至</span><span>西安</span>
+                                    <p>由<{$item.username}>从 广东佛山市 发货，并提供售后服务。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 购买信息 -->
+                        <div class="amount-wrap line">
+                            <div class="amount">
+                                <div  class="title">数量</div >
+                                <div class="info-body">
+                                    <input type="text" name="amount" value="1" class="amount-input">
+                                    <input type="hidden" id="itemid" name="itemid" value="<{$itemId}>">
+                                    <!-- <input type="hidden" id="userid" name="userid" value="{$Think.session.user_id}"> -->
+                                    <input type="hidden" id="username" name="username" value="<{$Think.session.username}>">
+                                    <div class="amount-btn">
+                                        <span class="amount-incerase">+</span>
+                                        <span class="amount-decrease">-</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 支付按钮 -->
+                        <div class="orderBtn-wrap line">
+                            <div class="order-btn">
+                                <div class="info-body">
+                                    <div class="btn-wrap">
+                                        <a class="buy-btn" id="pay-btn" href="#">立即购买</a>
+                                    </div>
+                                    <div  class="btn-wrap">
+                                         <if condition='$collection eq 0'>
+                                                <a class="buy-btn" id="col-btn" href="#">加入收藏</a>
+                                            <elseif condition='$collection eq 1'/>
+                                                 <a href="JavaScript:void(0);" class="buy-btn colled">已收藏</a>
+                                            <else/>
+                                        </if>
+                                                                                                               
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+		</div>
+	</div>
+	<div class="section detailSection">
+		<div class="w1180">
+            <!-- 左边店家信息 -->
+            <div class="aside">
+                <div class="seller-info-wrap">
+                    <div class="seller-info">
+                        <div class="head">
+                            <{$item.username}>
+                        </div>
+                        <div class="body">
+                            <div class="score-sum">
+                                <span><{$item.score}></span>
+                            </div>
+                            <div class="score-parts">
+                                <div class="score-part">
+                                    <span>商家信用</span>
+                                    <span>8.55</span>
+                                    <span>高</span>
+                                </div>
+                                <div class="score-part">
+                                    <span>商品评价</span>
+                                    <span>2.00</span>
+                                    <span>低</span>
+                                </div>
+                                <div class="score-part">
+                                    <span>物流速度</span>
+                                    <span>5.33</span>
+                                    <span>中</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 右边商品详情 -->
+            <div class="detail container">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">商品介绍</a></li>
+                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">商品评价</a></li>
+                    
+                </ul>
+
+                  <!-- Tab panes -->
+                 <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="home">
+                        <div class="parameter">
+                            <ul class="prarmeter-list">
+                                <li>商品名称:<{$item.itemname}></li>
+                                <li>商品规格:<{$item.standard}></li>
+                                <li>商品名称:啊大叔大叔的</li>
+                                <li>商品名称:啊大叔大叔的</li>
+                                <li>商品名称:啊大叔大叔的</li>
+                                <li>商品名称:啊大叔大叔的</li>
+                                <li>商品名称:啊大叔大叔的</li>
+
+                                <li>商品名称:啊大叔大叔的</li>
+                                <li>商品名称:啊大叔大叔的</li>
+
+                                <li>商品名称:啊大叔大叔的</li>
+                                <li>商品名称:啊大叔大叔的</li>
+                                <li>商品名称:啊大叔大叔的</li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="profile">
+                        <div class="comment-wrap">
+                            <div class="comment">
+                                <volist name="commentList" id='vo'>
+                                    <div class="comment-item">
+                                        <div class="user-column">
+                                            <div class="user-info">
+                                                <img src="__PUBLIC__/Images/Public/logo.png"><{$vo.username}>
+                                            </div>
+                                        </div>
+                                        <div class="comment-column">
+                                            <div class="comment-star">
+                                                <for start="0" end="$vo.commentscore">
+                                                    ★
+                                                </for>
+                                                <!-- ★★★★ -->
+                                            </div>
+                                            <div class="comment-con">
+                                                <p> <{$vo.content}></p>
+                                               
+                                            </div>
+                                            <div class="comment-message">
+                                               <{$vo.date}>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </volist>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+
+            </div>
+		</div>
+	</div>
+	<div class="footer" style="margin-top:2000px;">
+		<p>www.cctc.com</p>
+	</div>
+
+    <!-- 图片初始化 -->
+    <script type="text/javascript">
+       $('.picSlider').flexslider({
+            animation: "slide",
+            slideshow: true,
+            itemMargin: 0,
+            manualControls: ".slides-controller li",
+            directionNav: true, //Boolean:  (true/false)是否显示左右控制按钮
+            prevText: "", //String: 上一项的文字
+            nextText: "", //String: 下一项的文字
+            animationLoop: true,
+            // mousewheel: true
+        });
+       // 表单提交
+        $('#pay-btn').click(function(){
+            $('#buy-form').submit();
+        })  
+        // 添加收藏
+        $('#col-btn').click(function(){
+            if($(this).hasClass('colled')){
+                return;
+            }
+            var iid=$("#itemid").val();
+            var username=$("#username").val();
+            console.log(username);
+             $.post('__APP__/home/Item/addCollection',{'uname':username,'iid':iid},function(data){
+                alert("收藏成功");
+                $('#col-btn').addClass('colled').html('已收藏');
+            });
+        });   
+        $('.amount-incerase').click(function(){
+            var v=parseInt($('.amount-input').val())+1;
+            $('.amount-input').val(v);
+        });
+        $('.amount-decrease').click(function(){
+            var v=parseInt($('.amount-input').val())-1;
+            if(v==0){
+                return;
+            }
+            $('.amount-input').val(v);
+        });
+    </script>
+</body>
+</html>
