@@ -1,0 +1,177 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <title>即时聊天</title>
+
+    <script src="__PUBLIC__/JavaScript/jquery.js"></script>
+    <link href="__PUBLIC__/Css/Communication.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <!--<div><span><a href="{:U(GROUP_NAME.'/Login/logout')}">退出</a></span></div>-->
+    <div class="chat" id="close">
+        <!--信息展示框-->
+        <div class="show">
+            <!--正在交谈用户-->
+            <div class="tosend">
+                <h3></h3>
+            </div>
+            <!--内容展示框-->
+            <div class="showcontent">
+                <volist name="msg" id="vo">
+                    <div class="neirong">
+                        <span><{$vo.sender}>   <{$vo.timee}></span><br/>
+                        <p><{$vo.content}></p>
+                    </div>
+                </volist>
+            </div>
+            <!--最近联系人框-->
+            <div class="linkman">
+                <div class="linkmanhead">我的联系人</div>
+                <!--<div id="nav" class="nav">-->
+                    <ul>
+                        <li class="level1 send-list"><a href="#">最近发送</a>
+                            <ul>
+                                <volist name="receiver" id="vo">
+                                <li class="text"><a href="#"><{$vo.tosend}></a></li>
+                            </volist>
+                            </ul>
+                        </li>
+                        <li class="level1 receive-list"><a href="#">最近接收</a>
+                            <ul>
+                                <volist name="sender" id="vo">
+                                <li class="text"><a href="#"><{$vo.sender}></a></li>
+                                </volist>
+                            </ul>               
+                        </li>
+                    </ul>
+                <!--</div>-->              
+            </div>
+        </div>
+        
+        <!--输入框-->
+        <div class="option">
+            <ul>
+                <li><a href="javascript:void(0)" id="face" title="表情">:)</a></li>
+            </ul>
+        </div>
+        <div id="face1">
+            [f:1][f:2][f:3][f:4][f:5][f:6][f:7][f:8][f:9][f:10]
+            [f:11][f:12][f:13][f:14][f:15][f:16][f:17][f:18][f:19][f:20]
+        </div>
+        <div class="neir">
+            <textarea name="content" class="content" id="content" cols="45" rows="3" style="width:400px; height:70px"></textarea>
+        </div>
+        <div class="fs">
+            <input type="button" class="button" value="关闭" onClick="window_close()" />
+            <input type="submit" class="submit" value="发送" />
+        </div>
+    </div>   
+</body>
+
+<script>
+    //联系人列表的显示与隐藏
+    $(function(){
+        $(".level1>a").click(function(){
+            $(this).next().slideToggle(10,function(){
+            });
+        });
+    });
+
+    //显示当前联系人及聊天记录  
+    $(".send-list").on("click","li",function(){
+        $(".tosend h3").text($(this).text());
+        $.ajax({
+            type:"post",
+            url:"__APP__/Communication/Index/getSend",
+            data:{"userName":$(this).text()},
+            success:function(msg){
+                var myjson="";
+                var dat=eval('myjson=' + msg + ';');
+                $(".showcontent").empty();
+                $.each(dat,function(neirongIndex,val){
+                    var html="<div class='neirong'><span>"+val['sender'];
+                    html+="   "+val['timee']+"</span><br/><p>"+val['content'];
+                    html+="</p></div>";
+                    $('.showcontent').append(html);
+                });
+            }
+        });
+    });
+    $(".receive-list").on("click","li",function(){
+        $(".tosend h3").text($(this).text());
+        $.ajax({
+            type:"post",
+            url:"__APP__/Communication/Index/getReceive",
+            data:{"userName":$(this).text()},
+            success:function(msg){
+                var myjson="";
+                var dat=eval('myjson=' + msg + ';');
+                $(".showcontent").empty();
+                $.each(dat,function(neirongIndex,val){
+                    var html="<div class='neirong'><span>"+val['sender'];
+                    html+="   "+val['timee']+"</span><br/><p>"+val['content'];
+                    html+="</p></div>";
+                    $('.showcontent').append(html);
+                });
+            }
+        });
+    });
+
+    //关闭当前页面，跳转到上级页面
+    function window_close(){
+        if(confirm("您确定关闭此次聊天吗？")){
+            if (navigator.userAgent.indexOf("Firefox") != -1 || navigator.userAgent.indexOf("Chrome") !=-1) {
+                window.location.href="http://www.baidu.com";
+                window.close();
+            } else {
+                window.opener = null;
+                window.open("", "_self");
+                window.close();
+            }    
+        }       
+    }
+
+    //发送消息并显示
+    $(document).ready(function(){
+        $('.submit').click(function(){
+            var message=$('.content').val();
+            var personName=$('h3').text();
+            if (message=="") {
+                alert("发送消息不能为空，请重新输入...");
+            } 
+            else{
+                $.post("__APP__/Communication/Index/ajax",{content:message,tosend:personName},function(msg){   
+                    var myjson2="";   
+                    var dat=eval('myjson2=' + msg + ';');
+                    $(".showcontent").empty();
+                    $.each(dat,function(neirongIndex,dataa){
+                        var html="<div class='neirong'><span>"+dataa['sender'];
+                        html+="   "+dataa['timee']+"</span><br/><p>"+dataa['content'];
+                        html+="</p></div>";
+                        $('.showcontent').append(html);
+                    });
+                    $("textarea").val("");
+                });
+            }
+        });
+    });
+
+    //返回处理最新五条消息
+    function freshMessage(){   
+        $.get("__APP__/Communication/Index/fresh",'',function(mess){
+            var dat=eval("("+mess+")");
+            $(".show").empty();
+            $.each(dat,function(neirongIndex,datt){
+                var html="<div class='neirong'><span>"+val['sender'];
+                html+="   "+val['timee']+"</span><br/><p>"+val['content'];
+                html+="</p></div>";
+                $('.showcontent').append(html);
+            });
+        });
+    }
+
+    //自动刷新
+    // ("freshMessage()",1000);
+</script>
+</html>
