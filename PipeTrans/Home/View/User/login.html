@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>登录</title>
+        <script src="__PUBLIC__/Lib/jquery-1.11.2.js"></script>
+        <import type='css' file='Css.Buyer.public'/>
+        <import type='css' file='Css.Buyer.login.reset'/>
+        <import type='css' file='Css.Buyer.login.common'/>
+    </head>
+    <body>
+        <include file="./PipeTrans/Home/View/tpl/header.html" />
+        <div class="wrap login_wrap" style="margin-top:30px">
+            <div class="content">
+                
+                <div class="logo"></div>
+                
+                <div class="login_box"> 
+                    
+                    <div class="login_form">
+                        <div class="login_title">
+                            登录
+                        </div>
+                        <form enctype="multipart/form-data" action="__APP__/home/user/doLogin" method="post" name="login-form" id="login-form">
+                            
+                            <div class="form_text_ipt">
+                                <input name="username" type="text" placeholder="账号">
+                            </div>
+                            <div class="ececk_warning"><span>数据不能为空</span></div>
+                            <div class="form_text_ipt">
+                                <input name="password" type="password" placeholder="密码">
+                            </div>
+                            <div class="ececk_warning"><span>数据不能为空</span></div>
+                            <div class="form_check_ipt">
+                                <div class="left check_left">
+                                    <label><input name="" type="checkbox"> 下次自动登录</label>
+                                </div>
+                                <div class="right check_right">
+                                    <a href="#">忘记密码</a>
+                                </div>
+                            </div>
+                            <div class="form_btn">
+                                <button type="button"  id="doLogin">登录</button>
+                            </div>
+                            <div class="form_reg_btn">
+                                <span>还没有帐号？</span><a href="buyregister.html">买家注册</a><span>或</span><a href="sellregister.html">卖家注册</a>
+                            </div>
+                        </form>
+                        <div class="other_login">
+                            <div class="left other_left">
+                                <span> </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+        $('#doLogin').click(function(){
+            $('#login-form').submit();
+        });
+        </script>
+    </body>
+</html>

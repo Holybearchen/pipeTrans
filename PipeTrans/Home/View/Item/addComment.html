@@ -1,0 +1,69 @@
+<html>
+<head>
+	<title>PipeTrans</title>
+    <import type='css' file='Css.Buyer.item'/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Lib/FlexSlider2/flexslider.css">
+    <script src="__PUBLIC__/Lib/jquery-1.11.2.js"></script>
+    <script src="__PUBLIC__/Lib/FlexSlider2/jquery.flexslider-min.js"></script>
+    <script src="__PUBLIC__/Lib/bootstrap-3.3.7/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/Lib/distpicker/docs/js/distpicker.js"></script>
+</head>
+<body>
+	<include file="./PipeTrans/Home/View/tpl/header.html" />
+	<include file="./PipeTrans/Home/View/tpl/top-search1.html" />
+	<div class="section graySection">
+		<div class="w1180">
+            <div class="container add-comment-box">
+                <h3>评价订单</h3>
+                <div class="comment-box">
+                    <div class="left">
+                        <h3>myitem</h3>
+                        <h5>$65</h5>
+                    </div>
+                    <div class="right">
+                        <form action="__APP__/home/item/doAddComment" method="POST" class="add-form">
+                            <div class="score">满意度
+                                <div class="star">
+                                  <span></span>
+                                  <span></span>
+                                  <span></span>
+                                  <span></span>
+                                  <span></span>
+                                </div>
+                            </div>
+                            <div>
+                                <span>评价</span>
+                                <input id="input-star" type="hidden" name="stars" value="0">
+                                <input id="iid" type="hidden" name="iid" value="<{$iid}>">
+                                <input id="did" type="hidden" name="did" value="<{$did}>">
+                                <textarea name="comment-con"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="sub-box">
+                    <a class="sub-btn" href="#">提交</a>
+                </div>
+            </div>
+		</div>
+	</div>
+	<div class="footer">
+		<p>www.cctc.com</p>
+	</div>
+    <script type="text/javascript">
+        var stars;
+        $(function(){
+            $(".star span").click(function(){
+                stars = $(this).index();
+                alert(stars);
+                $(".star span:lt("+stars+1+")").addClass("current");
+                $(".star span:gt("+stars+")").removeClass("current");
+                $("#input-star").val(stars);
+            });
+            $(".sub-btn").click(function(){
+                $(".add-form").submit();
+            })
+        });
+    </script>
+</body>
+</html>

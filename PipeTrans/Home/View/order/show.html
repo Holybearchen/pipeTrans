@@ -1,0 +1,97 @@
+<html>
+<head>
+	<title>PipeTrans</title>
+	<import type='css' file='Css.Buyer.order'/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Lib/FlexSlider2/flexslider.css">
+    <script src="__PUBLIC__/Lib/jquery-1.11.2.js"></script>
+    <script src="__PUBLIC__/Lib/FlexSlider2/jquery.flexslider-min.js"></script>
+    <script src="__PUBLIC__/Lib/bootstrap-3.3.7/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/Lib/distpicker/docs/js/distpicker.js"></script>
+</head>
+<body>
+	<include file="./PipeTrans/Home/View/tpl/header.html" />
+    <include file="./PipeTrans/Home/View/tpl/top-search1.html" />
+	<div class="section stepSection">
+             
+    <div class="section">
+        <div class="w1180">
+        <!-- 订单商品 -->
+            <div class="order-list-box">
+                <div class="order-panel">
+                    <div>
+                        我的订单
+                    </div>
+                    <div class="list-head show-head">
+                        <div class="list-head-item">
+                            商品
+                        </div>
+                        <div class="list-head-price">
+                            单价
+                        </div>
+                        <div class="list-head-count">
+                            数量
+                        </div>
+                        <div class="list-head-pay">
+                            总价
+                        </div>
+                        <div class="list-head-status">
+                            状态
+                        </div>
+                         <div class="list-head-option">
+                            操作
+                        </div>
+                    </div>
+                    <div class="list-body">
+                        <volist name='orders' id='vo'>
+                            <div class="package order">
+                                <div class="package-head"> 
+                                    <span><{$vo.orderdate}></span>
+                                    <span>订单号：<{$vo.orderid}></span>
+                                </div>
+                                <volist  name='vo[details]' id='dt'>  
+                                    <div class="package-item">
+                                        <div class="item-item">
+                                            <img src="__PUBLIC__/Images/Public/logo.png">
+                                            <{$dt.itemname}>
+                                        </div>
+                                        <div class="item-price"><{$dt.price}></div>
+                                        <div class="item-count"><{$dt.quantity}></div>
+                                        <div class="item-pay"><{$dt.total}></div>
+                                        <div class="item-status">
+                                            <if condition='$dt.dstatus eq 0'>
+                                                等待卖家确认
+                                            <elseif condition='$dt.dstatus eq 1'/>
+                                                订单已取消
+                                            <elseif condition='$dt.dstatus eq 2'/>
+                                                订单已确认
+                                            <elseif condition='$dt.dstatus eq 3'/>
+                                                订单被拒绝
+                                            <elseif condition='$dt.dstatus eq 6'/>
+                                                卖家已发货
+                                            <elseif condition='$dt.dstatus eq 8'/>
+                                                已确认收货
+                                            <elseif condition='$dt.dstatus eq 9'/>
+                                                已确认收货
+                                            <else/>
+                                            </if>
+                                        </div>
+                                        <div class="item-option"><a href="__APP__/home/Order/detail/orderid/<{$vo.orderid}>">查看详情</a></div>
+                                    </div>
+                                </volist>
+                            </div>
+                        </volist>
+                       
+                    </div>
+
+                </div>
+            </div>
+    </div>
+	<div class="footer" style="margin-top:2000px;">
+		<p>www.cctc.com</p>
+	</div>
+
+    <script type="text/javascript">
+      $("#distpicker1").distpicker();
+    </script>
+</body>
+</html>

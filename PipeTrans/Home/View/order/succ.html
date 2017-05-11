@@ -1,0 +1,100 @@
+<html>
+<head>
+	<title>PipeTrans</title>
+	<import type='css' file='Css.Buyer.succ'/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Lib/FlexSlider2/flexslider.css">
+    <script src="__PUBLIC__/Lib/jquery-1.11.2.js"></script>
+    <script src="__PUBLIC__/Lib/FlexSlider2/jquery.flexslider-min.js"></script>
+    <script src="__PUBLIC__/Lib/bootstrap-3.3.7/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/Lib/distpicker/docs/js/distpicker.js"></script>
+</head>
+<body>
+	<div class="header section" id="index-header">
+		<div class=" w1180">
+				<ul class="fl">
+					<li><a href="">登陆</a></li>
+					<li><a href="">注册</a></li>
+				</ul>
+				<ul class="fr navlist">
+					<li><a href="">订单处理</a></li>
+					<li><a href="">消息中心</a></li>
+					<li><a href="">我的收藏</a></li>
+					<li>08511231311</li>
+				</ul>
+		</div>
+	</div>
+	<div class="section topSection stepSection">
+		<div class="w1180">
+			<div class="top">
+				<div class="logo">
+					<img src="__PUBLIC__/Images/Public/logo.png">
+				</div>
+                <div class="step-wrap">
+    				<ol class="stepBar">
+    					<li class="step-first">
+                            <div>
+                                <div class="step-name">填写订单</div>
+                                <div class="step-no">1</div>
+                            </div>
+                        </li>
+                         <li class="step">
+                            <div class="step-done">
+                                <div class="step-name">等待确认</div>
+                                <div class="step-no">2</div>
+                            </div>
+                        </li>
+                        <li class="step">
+                            <div class="">
+                                <div class="step-name">生成合同</div>
+                                <div class="step-no">3</div>
+                            </div>
+                        </li>
+                        <li class="step">
+                             <div class="">
+                                <div class="step-name">确认收货</div>
+                                <div class="step-no">4</div>
+                            </div>
+                        </li>
+                        <li class="step-last">
+                             <div class="">
+                                <div class="step-name">评价</div>
+                                <div class="step-no">5</div>
+                            </div>
+                        </li>
+    				</ol>
+                </div>
+			</div>
+		</div>
+	</div>
+	<div class="section succSection ">
+		<div class="w1180">
+            <div class="succ-box">
+                <div class="succ-inner">
+                    <div class="succ-body">
+                        <div class="succ-icon">√</div>
+                        <div class="succ-text">
+                            <div class="succ-text-h">
+                                <h3>订单提交成功，请等待卖家确认</h3>
+                            </div>
+                            <div class="succ-tip">
+                                <span>重要提示：卖家确认后将生成合同</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="succ-footer">
+                        <a href="__APP__/home/Order/detail/orderid/<{$oid}>">查看订单详情</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+	</div>
+	<div class="footer" style="margin-top:2000px;">
+		<p>www.cctc.com</p>
+	</div>
+
+    <script type="text/javascript">
+      $("#distpicker1").distpicker();
+    </script>
+</body>
+</html>

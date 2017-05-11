@@ -1,0 +1,57 @@
+<html>
+<head>
+	<title>PipeTrans</title>
+	<import type='css' file='Css.Buyer.detail'/>
+    <style type="text/css">
+     td,th{
+            padding:10px;
+        }
+    h3{
+        font-size: 16px;
+        font-weight: 700;
+    }
+    </style>
+</head>
+<body>
+    <h2 class="text-center">
+        石油管材交易平台
+    </h2>    
+    <h2 class="text-center">
+        商品交易合同
+    </h2>
+    <h3>买方:<span><{$con.buyername}></span></h3>
+    <h3>卖方:<span><{$con.sellername}></span></h3>
+    <p>根据《中华人民共和国合同法》及其他有关法律、行政法规的规定，买卖双方在平等、自愿、公开、诚实信用的基础上就材料买卖事宜达成协议如下</p>
+    <h3>第一条:所购管材基本情况</h3>
+   <table border="1">
+        <tr>
+            <th>管材名称</th>
+            <th>产地</th>
+            <th>规格型号</th>
+            <th>质量标准</th>
+            <th>单价/根</th>
+            <th>数量</th>
+            <th>总价</th>
+        </tr>
+        <tr>
+            <td><{$con.itemname}></td>
+            <td><{$con.area}></td>
+            <td><{$con.type}></td>
+            <td><{$con.standard}></td>
+            <td><{$con.price}></td>
+            <td><{$con.quantity}></td>
+            <td>￥<{$con.total}></td>
+        </tr>
+    </table>
+    <h3>第二条:交货</h3>
+    <p>交货时间:合同签署15日内，即<u></u></p>
+    <h3>第三条:验收</h3>
+    <p>对于产品的规格型号、数量、材质等与约定不符或有其他质量问题的，买方异议期为卖方交货后7日内，异议经核实卖方应无条件补足或换货</p>
+    <h3>第四条:违约责任</h3>
+    <p>卖方违约：</p>
+    <p>1、 建材产品经专业机构检测不符合国家标准或合同约定质 量标准的，卖方应无条件换、退货，或赔偿买方由此受到的损失。 </p> 
+    <p>2、卖方延迟交货的，每日应向买方支付延迟部分价款1%的违约金；延迟交货日的，除支付违约金外，买方还有权解除合同，卖方已收取定金、预付款或价款应全部返还，但买方在不收取违约金的情况下，有权要求卖方双倍返还定金。</p>
+
+    <p>合同生成日期:<{$con.date}></p>
+</body>
+</html>
