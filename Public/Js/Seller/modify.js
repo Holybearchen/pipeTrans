@@ -16,4 +16,10 @@ $(document).ready(function() {
 		$("#undo").toggle();
 		$("#save").toggle();
 	});
+
+	$("#receivemoney").click(function() {
+		$("#receivemoney").toggle();
+		$("#send").toggle();
+		$("#sendinginfo").toggle();
+	});
 });

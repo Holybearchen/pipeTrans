@@ -33,16 +33,16 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="<{:U('Index/index')}>">卖家首页</a></li>
                 <li class="active"><a href="<{:U('Item/itemIndex')}>">商品管理</a></li>
-                <li><a href="#">合同中心</a></li>
+                <!-- <li><a href="<{:U('Contract/contractIndex')}>">合同中心</a></li> -->
                 <li><a href="<{:U('Order/index')}>">订单中心</a></li>
-                <li><a href="#">信息统计</a></li>
+                <li><a href="<{:U('Statistics/statisticsIndex')}>">信息统计</a></li>
+                <li><a href="<{:U('Complain/complainIndex')}>">投诉处理</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="<{:U('Info/companyInfo')}>">欢迎您, 骆京</a></li>
-                <li><a href="#">退出</a></li>
+                <li><a href="<{:U('Info/companyInfo')}>">欢迎您, <{$Think.session.username}></a></li>
+                <li><a href="<{:U('User/doLogout')}>">退出</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -52,28 +52,28 @@
     <div class="row">
         <div class="col-md-4">
             <div class="thumbnail">
-                <img src="__PUBLIC__/Image/img1.jpg" alt="#10裂化管">
+                <img src="__PUBLIC__/Uploads/Items/<{$iteminfo.url1}>" alt="<{$iteminfo.itemname}>">
                 <div class="caption">
                     <br/>
                     <div class="row">
                         <div class="col-md-3">
                             <div class="thumbnail">
-                                <img src="__PUBLIC__/Image/img1.jpg" alt="#10裂化管">
+                                <img src="__PUBLIC__/Uploads/Items/<{$iteminfo.url1}>" alt="<{$iteminfo.itemname}>">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="thumbnail">
-                                <img src="__PUBLIC__/Image/img1.jpg" alt="#10裂化管">
+                                <img src="__PUBLIC__/Uploads/Items/<{$iteminfo.url2}>" alt="<{$iteminfo.itemname}>">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="thumbnail">
-                                <img src="__PUBLIC__/Image/img1.jpg" alt="#10裂化管">
+                                <img src="__PUBLIC__/Uploads/Items/<{$iteminfo.url3}>" alt="<{$iteminfo.itemname}>">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="thumbnail">
-                                <img src="__PUBLIC__/Image/img1.jpg" alt="#10裂化管">
+                                <img src="__PUBLIC__/Uploads/Items/<{$iteminfo.url4}>" alt="<{$iteminfo.itemname}>">
                             </div>
                         </div>
                     </div>
@@ -97,7 +97,7 @@
                     <br/>
                     <div class="row">
                         <div class="col-md-1"></div>
-                        <div class="col-md-2 text-right"><strong>商品规格：</strong></div>
+                        <div class="col-md-2 text-right"><strong>商品型号：</strong></div>
                         <div class="col-md-4 text-left">
                             <span class="preInfo"><{$iteminfo.standard}></span>
                             <input type="text" id="std" class="form-control modifiedInfo" value="<{$iteminfo.standard}>" readonly="readonly" style="display: none;">
@@ -115,9 +115,19 @@
                         <div class="col-md-2 text-right"><strong>商品库存：</strong></div>
                         <div class="col-md-3 text-left">
                             <span class="preInfo"><{$iteminfo.itemquantity}> 件</span>
-                            <input type="text" id="quantity" class="form-control modifiedInfo" value="<{$iteminfo.itemquantity}>" style="display: none;">
+                            <input type="text" id="quantity" class="form-control modifiedInfo" value="<{$iteminfo.itemquantity}>" readonly="readonly" style="display: none;">
                         </div>
                         <div class="col-md-1"></div>
+                    </div>
+                    <br/>                    
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-2 text-right"><strong>发货地址：</strong></div>
+                        <div class="col-md-4 text-left">
+                            <span class="preInfo"><{$iteminfo.send-area}></span>
+                            <input type="text" id="address" class="form-control modifiedInfo" value="<{$iteminfo.send-area}>" style="display: none;">
+                        </div>
+                        <div class="col-md-5"></div>
                     </div>
                     <br/>
                     <div class="row">
@@ -145,11 +155,20 @@
                         <div class="col-md-1"></div>
                     </div>
                     <br/>
+                    <div class="row modifiedInfo" style="display: none;">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-2 text-right"><strong>进货数量：</strong></div>
+                        <div class="col-md-4 text-left">
+                            <input type="text" id="newitem" class="form-control">
+                        </div>
+                        <div class="col-md-5"></div>
+                    </div>
                     <br/>
+
                     <div class="row">
                         <div class="col-md-1"></div>
                         <div class="col-md-10 text-right">
-                            <button type="button" class="btn btn-danger" id="delete">
+                            <button type="button" class="btn btn-danger" id="delete" onclick="deleteitems(<{$iteminfo.itemid}>)">
                                 删除
                             </button>
                             <button type="button" class="btn btn-default" id="undo" style="display: none;">
@@ -164,6 +183,32 @@
                         </div>
                         <div class="col-md-1"></div>
                     </div>
+                </div>
+            </div>
+
+            <div class="panel panel-info">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10"><h5><strong>买家评论：(共<{$count}>条)</strong></h5></div>
+                        <div class="col-md-1"></div>
+                    </div>
+                    <hr>
+                    <volist name='msg' id='vo'>
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10"><strong><{$vo.username}>：</strong><{$vo.content}></div>
+                            <div class="col-md-1"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8 text-right"><{:date('Y-m-d H:i:s', (int)$vo.date)}></div>
+                            <div class="col-md-1"></div>
+                        </div>
+                        <br>
+                        <br>
+                    </volist>
                 </div>
             </div>
         </div>

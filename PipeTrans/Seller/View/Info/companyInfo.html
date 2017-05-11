@@ -33,16 +33,16 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="<{:U('Index/index')}>">卖家首页</a></li>
                 <li><a href="<{:U('Item/itemIndex')}>">商品管理</a></li>
-                <li><a href="#">合同中心</a></li>
+                <!-- <li><a href="<{:U('Contract/contractIndex')}>">合同中心</a></li> -->
                 <li><a href="<{:U('Order/index')}>">订单中心</a></li>
-                <li><a href="#">信息统计</a></li>
+                <li><a href="<{:U('Statistics/statisticsIndex')}>">信息统计</a></li>
+                <li><a href="<{:U('Complain/complainIndex')}>">投诉处理</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="<{:U('Info/companyInfo')}>">欢迎您, 骆京</a></li>
-                <li><a href="#">退出</a></li>
+                <li class="active"><a href="<{:U('Info/companyInfo')}>">欢迎您, <{$Think.session.username}></a></li>
+                <li><a href="<{:U('User/doLogout')}>">退出</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -52,8 +52,8 @@
     <div class="row">
         <div class="col-md-2">
             <div class="list-group">
-                <a href="__URL__/companyInfo" class="list-group-item active">基本信息</a>
-                <a href="__URL__/modifyPWD" class="list-group-item">修改密码</a>
+                <a href="__URL__/companyInfo" class="list-group-item active text-center">基本信息</a>
+                <a href="__URL__/modifyPWD" class="list-group-item text-center">修改密码</a>
             </div>
         </div>
 
@@ -80,8 +80,9 @@
                                 <div class="col-md-1"></div>
                                 <div class="col-md-4 text-right"><strong>电子邮箱：</strong></div>
                                 <div class="col-md-7 text-left">
-                                    <span class="preInfo"><{$info.email}></span>
-                                    <input type="text" class="form-control modifiedInfo" id="email" value="<{$info.email}>" style="display: none;">
+                                    <span><{$info.email}></span>
+                                    <!-- <span class="preInfo"><{$info.email}></span>
+                                    <input type="text" class="form-control modifiedInfo" id="email" value="<{$info.email}>" style="display: none;"> -->
                                 </div>
                             </div>
                             <br/>
@@ -128,7 +129,7 @@
                                 <div class="col-md-4 text-right"><strong>营业执照：</strong></div>
                                 <div class="col-md-6 text-left">
                                     <div class="thumbnail">
-                                        <img src="__PUBLIC__/Image/img2.jpg" alt="营业执照">
+                                        <img src="__PUBLIC__/Uploads/Sellers/<{$info.url}>" alt="营业执照">
                                     </div>
                                 </div>
                                 <div class="col-md-2"></div>

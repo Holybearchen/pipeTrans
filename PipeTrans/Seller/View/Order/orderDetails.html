@@ -11,7 +11,7 @@
 	<script type="text/javascript" src="__PUBLIC__/Lib/jquery-1.11.2.js"></script>
 	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 	<script type="text/javascript" src="__PUBLIC__/Lib/bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/Js/Seller/clickbutton.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Js/Seller/orderinfo.js"></script>
 </head>
 <body>
 
@@ -32,16 +32,16 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="<{:U('Index/index')}>">卖家首页</a></li>
                 <li><a href="<{:U('Item/itemIndex')}>">商品管理</a></li>
-                <li><a href="#">合同中心</a></li>
+                <!-- <li><a href="<{:U('Contract/contractIndex')}>">合同中心</a></li> -->
                 <li class="active"><a href="<{:U('Order/index')}>">订单中心</a></li>
-                <li><a href="#">信息统计</a></li>
+                <li><a href="<{:U('Statistics/statisticsIndex')}>">信息统计</a></li>
+                <li><a href="<{:U('Complain/complainIndex')}>">投诉处理</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="<{:U('Info/companyInfo')}>">欢迎您, 骆京</a></li>
-                <li><a href="#">退出</a></li>
+                <li><a href="<{:U('Info/companyInfo')}>">欢迎您, <{$Think.session.username}></a></li>
+                <li><a href="<{:U('User/doLogout')}>">退出</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -51,11 +51,9 @@
     <div class="row">
         <div class="col-md-2">
             <div class="list-group">
-                <a href="__URL__/index" class="list-group-item active">
-                    <span class="badge"><{$newcounter[0]['count(*)']}></span>新订单
-                </a>
-                <a href="__URL__/ordering" class="list-group-item">执行中</a>
-                <a href="__URL__/ordered" class="list-group-item">已完成</a>
+                <a href="__URL__/index" class="list-group-item active text-center">新订单</a>
+                <a href="__URL__/ordering" class="list-group-item text-center">执行中</a>
+                <a href="__URL__/ordered" class="list-group-item text-center">已完成</a>
             </div>
         </div>
 
@@ -69,49 +67,49 @@
                     <div class="row">
                             <div class="col-md-1"></div>
                             <div class="col-md-2 text-right"><strong>订单编号：</strong></div>
-                            <div class="col-md-3 text-left"><{$detail[0]['orderid']}></div>
+                            <div class="col-md-3 text-left"><{$detail['orderid']}></div>
                             <div class="col-md-2 text-right"><strong>买家姓名：</strong></div>
-                            <div class="col-md-4 text-left"><{$detail[0]['name']}></div>
+                            <div class="col-md-4 text-left"><{$detail['name']}></div>
                     </div>
                     <br/>
                     <div class="row">
                             <div class="col-md-1"></div>
                             <div class="col-md-2 text-right"><strong>订单商品：</strong></div>
-                            <div class="col-md-9 text-left"><{$detail[0]['itemname']}></div>
+                            <div class="col-md-9 text-left"><{$detail['itemname']}></div>
                     </div>
                     <br/>
                     <div class="row">
                             <div class="col-md-1"></div>
                             <div class="col-md-2 text-right"><strong>商品单价：</strong></div>
-                            <div class="col-md-3 text-left money">￥<{$detail[0]['price']}></div>
+                            <div class="col-md-3 text-left money">￥<{$order['price']}></div>
                             <div class="col-md-2 text-right"><strong>订货数量：</strong></div>
-                            <div class="col-md-4 text-left"><{$detail[0]['quantity']}></div>
+                            <div class="col-md-4 text-left"><{$detail['quantity']}></div>
                     </div>
                     <br/>
                     <div class="row">
                             <div class="col-md-1"></div>
                             <div class="col-md-2 text-right"><strong>收货地址：</strong></div>
-                            <div class="col-md-9 text-left"><{$detail[0]['province']}><{$detail[0]['city']}><{$detail[0]['area']}><{$detail[0]['address']}></div>
+                            <div class="col-md-9 text-left"><{$detail['province']}><{$detail['city']}><{$detail['area']}><{$detail['address']}></div>
                     </div>
                     <br/>
                     <div class="row">
                             <div class="col-md-1"></div>
                             <div class="col-md-2 text-right"><strong>联系电话：</strong></div>
-                            <div class="col-md-9 text-left"><{$detail[0]['phone']}></div>
+                            <div class="col-md-9 text-left"><{$detail['phone']}></div>
                     </div>
                     <br/>
                     <div class="row">
                             <div class="col-md-1"></div>
                             <div class="col-md-2 text-right"><strong>总金额：</strong></div>
-                            <div class="col-md-3 text-left money">￥<{$detail[0]['totalprice']}></div>
-                            <div class="col-md-2 text-right"><strong>预付款：</strong></div>
-                            <div class="col-md-4 text-left money">￥1000.00</div>
+                            <div class="col-md-3 text-left money">￥<{$detail['totalprice']}></div>
+                            <div class="col-md-2 text-right"><strong>运费：</strong></div>
+                            <div class="col-md-4 text-left money">￥<{$detail['freight']}></div>
                     </div>
                     <br/>
                     <div class="row">
                             <div class="col-md-1"></div>
                             <div class="col-md-2 text-right"><strong>下单时间：</strong></div>
-                            <div class="col-md-3 text-left"><{$detail[0]['orderdate']}> 19:19:10
+                            <div class="col-md-3 text-left"><{:date('Y-m-d H:i:s', (int)$detail['orderdate'])}>
                             </div>
                             <div class="col-md-2 text-right"><strong>订单状态：</strong></div>
                             <div class="col-md-4 text-left state">待确认</div>
@@ -121,9 +119,8 @@
                     <br/>
                     <br/>
                     <div class="row text-center">
-                            <button type="button" class="btn btn-link">查看合同</button>
-                            <button type="button" class="btn btn-danger">拒绝</button>
-                            <button type="button" class="btn btn-primary" onclick="accept(<{$detail[0]['orderid']}>)">确定</button>
+                            <button type="button" class="btn btn-danger" onclick="refuse(<{$detail['orderid']}>)">拒绝</button>
+                            <button type="button" class="btn btn-primary" onclick="accept(<{$detail['orderid']}>)">确定</button>
                     </div>
                 </div>
             </div>

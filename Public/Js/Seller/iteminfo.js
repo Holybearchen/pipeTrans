@@ -1,24 +1,15 @@
-function additems() {
-	var item_name = document.getElementById("item_name").value;
-	var item_std = document.getElementById("item_std").value;
-	var item_price = document.getElementById("item_price").value;
-	var item_quantity = document.getElementById("item_quantity").value;
-	var item_intro = document.getElementById("item_intro").value;
-	var promise = document.getElementById("promise").value;
-
-	//alert(item_intro);
-
-	$.post('/PipeTrans/Seller/Item/additem', 
-		{'name':item_name, 'std':item_std, 'price':item_price, 'quantity':item_quantity, 
-			'intro':item_intro, 'promise':promise}, function(data) {
-			if (data >= 0)
+function deleteitems(itemid) {
+	$.post('/PipeTrans/Seller/Item/deleteitem', 
+		{'itemid':itemid}, function(data) {
+			if (data > 0)
 			{
-				alert("success!");
-				window.location.reload();
+				alert("删除成功!");
+				window.location.href='/PipeTrans/Seller/Item/itemIndex';
 			}
 			else
 			{
-				alert("fail!");
+				alert("删除失败!");
+				window.location.reload();
 			}
 			
 		});
@@ -27,21 +18,24 @@ function additems() {
 function modifyitems(itemid) {
 	var price = document.getElementById("price").value;
 	var quantity = document.getElementById("quantity").value;
+	var address = document.getElementById("address").value;
 	var promise = document.getElementById("promise").value;
-
-	alert(quantity);
+	var newitem = document.getElementById("newitem").value;
 	
 	$.post('/PipeTrans/Seller/Item/modifyitem', 
-		{'itemid':itemid, 'price':price, 'quantity':quantity, 'promise':promise}, function(data) {
+		{'itemid':itemid, 'price':price, 'quantity':quantity, 'address':address, 'promise':promise,'newitem':newitem}, function(data) {
 			if (data >= 0)
 			{
-				alert("success!");
+				alert("修改成功!");
 				window.location.reload();
 			}
 			else
 			{
-				alert("fail!");
-			}
-			
+				alert("修改失败!");
+			}	
 		});
+}
+
+function undoadd() {
+	window.location.href='/PipeTrans/Seller/Item/itemIndex';
 }

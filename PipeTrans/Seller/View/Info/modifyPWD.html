@@ -11,6 +11,7 @@
 	<script type="text/javascript" src="__PUBLIC__/Lib/jquery-1.11.2.js"></script>
 	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 	<script type="text/javascript" src="__PUBLIC__/Lib/bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Js/Seller/modifyinfo.js"></script>
 </head>
 <body>
 
@@ -31,16 +32,16 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="<{:U('Index/index')}>">卖家首页</a></li>
                 <li><a href="<{:U('Item/itemIndex')}>">商品管理</a></li>
-                <li><a href="#">合同中心</a></li>
+                <!-- <li><a href="<{:U('Contract/contractIndex')}>">合同中心</a></li> -->
                 <li><a href="<{:U('Order/index')}>">订单中心</a></li>
-                <li><a href="#">信息统计</a></li>
+                <li><a href="<{:U('Statistics/statisticsIndex')}>">信息统计</a></li>
+                <li><a href="<{:U('Complain/complainIndex')}>">投诉处理</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="<{:U('Info/companyInfo')}>">欢迎您, 骆京</a></li>
-                <li><a href="#">退出</a></li>
+                <li class="active"><a href="<{:U('Info/companyInfo')}>">欢迎您, <{$Think.session.username}></a></li>
+                <li><a href="<{:U('User/doLogout')}>">退出</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -50,8 +51,8 @@
     <div class="row">
         <div class="col-md-2">
             <div class="list-group">
-                <a href="__URL__/companyInfo" class="list-group-item">基本信息</a>
-                <a href="__URL__/modifyPWD" class="list-group-item active">修改密码</a>
+                <a href="__URL__/companyInfo" class="list-group-item text-center">基本信息</a>
+                <a href="__URL__/modifyPWD" class="list-group-item active text-center">修改密码</a>
             </div>
         </div>
 
@@ -62,7 +63,40 @@
                 </div>
 
                 <div class="panel-body">
-                    
+                    <div class="row">
+                        <form action="__URL__/changePWD" method="post">
+                            <div class="row">
+                                <div class="col-md-4 text-right"><strong>原密码：</strong></div>
+                                <div class="col-md-4 text-left">
+                                    <input type="password" name="prepwd" class="form-control">
+                                </div>
+                                <div class="col-md-4"></div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-4 text-right"><strong>新密码：</strong></div>
+                                <div class="col-md-4 text-left">
+                                    <input type="password" name="newpwd" class="form-control">
+                                </div>
+                                <div class="col-md-4"></div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-4 text-right"><strong>确认新密码：</strong></div>
+                                <div class="col-md-4 text-left">
+                                    <input type="password" name="renewpwd" class="form-control">
+                                </div>
+                                <div class="col-md-4"></div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="row text-center">
+                                <button type="button" class="btn btn-default" onclick="undochange()">取消</button>
+                                &nbsp&nbsp
+                                <button type="submit" class="btn btn-primary">确定</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
