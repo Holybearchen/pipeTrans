@@ -1,0 +1,164 @@
+.chat{
+    width:610px;
+    height: 435px;
+    margin: 0 auto;
+    border:1px solid #000;
+    display: block;
+    position: relative;
+    background-color: #eeeeee;
+}
+h3{
+    margin-top:10px;
+    font-size:25px;
+    font-weight: bold;
+    color: #000;
+    text-align: left;
+}
+.show{
+    border-bottom: 1px solid #000;
+    border-right: 1px solid #000;
+    width: 400px;
+    height: 300px;
+    display: block;
+    overflow: auto;   
+}
+.showcontent{
+    position: absolute;
+}
+.tosend{
+    border:1px solid #000;
+    border-bottom: 2px solid #000;
+    width: 398px;
+    height:50px;
+    display: absolute;
+}
+.linkman{
+    width: 200px;
+    height: 435px;
+    border-left: 1px solid #000;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background-color:#eeeeee; 
+}
+.linkmanhead{
+    border-bottom: 2px solid #000;
+    height: 50px;
+}
+.nav{  
+   background-color:#EEEEEE;  
+   height:40px;  
+   width:200px;  
+   margin:0 auto;  
+}  
+/*一级菜单样式设置*/
+.level1{
+    font-size: 18px;
+}  
+ul{
+   margin-left:0px;
+   margin-top:8px;
+   /*list-style:none;*/    
+}  
+ul li{  
+   /*float:left;*/  
+   line-height:40px;  
+   text-align: left; 
+   position:relative;
+   margin-bottom:10px;
+}  
+a{  
+    text-decoration:none;  
+    display:block;    
+    width:90px;  
+    height:20px;  
+} 
+/*二级下拉菜单样式设置*/  
+ul li ul li{  
+    float:none;
+}  
+ul li ul{ 
+    padding-left: 0; 
+    list-style:none;
+    top:40px;  
+    left:0px;  
+    display:none;
+    width:90px;  
+}
+.neirong{
+    display: block;
+    /*margin-top: 45px;*/
+    width: 383px;
+    overflow: auto;
+    border-bottom: 1px dashed #000; 
+}
+.nei{
+    width: 400px;
+    display: block;
+}
+p{
+    display: inline;
+    width: 400px;
+}
+.one{
+    color: blue;
+}
+.neir{
+    bottom: 33px;
+    position: absolute;
+    width: 400px;
+    padding-left: 1px;
+}
+.fs{
+    bottom: 5px;
+    position: absolute;
+    width: 400px;
+    padding-left: 1px;
+}
+ .button{
+    background-color: #777777;
+    border: medium none;
+    color: #eeeeee;
+    float: left;
+    line-height: 19px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+.submit{
+    background-color: #777777;
+    border: medium none;
+    color: #eeeeee;
+    float: right;
+    line-height: 19px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.option{
+    position: relative;
+    width: 400px;
+}
+.option ul{
+    height: 20px;
+    line-height: 20px;
+    margin-top: 0px;
+    padding-left: 9px;
+}
+.option li{
+    float: left;
+    list-style: none;
+    margin-right: 10px;
+}
+#face1{
+    display: none;
+    z-index: 9999;
+    position: absolute;
+    top: 326px;
+    width: 160px;
+}
+#face1 img{
+    border: 1px solid #ccc;
+    margin-left: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+}
