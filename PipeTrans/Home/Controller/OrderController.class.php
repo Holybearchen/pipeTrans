@@ -214,7 +214,7 @@ class orderController extends Controller {
             if($result) {
                 $mOrder->commit();
                 $md->commit();
-                $this->success('取消订单成功');
+                $this->success('确认收货成功');
             }
             else{
                 $mOrder->rollback();

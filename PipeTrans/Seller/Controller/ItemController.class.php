@@ -99,7 +99,6 @@ class ItemController extends Controller {
 		$upload->subName = $photo;
 	
 		$info = $upload->upload();
-		
 		if (!$info)
 		{
 			$this->error($upload->getError());
@@ -111,8 +110,8 @@ class ItemController extends Controller {
 			$data['url3'] = $info[2]['savename'];
 			$data['url4'] = $info[3]['savename'];
 			
-
 			$addedid = $item->add($data);
+
 			$this->redirect('itemIndex');
 		}		
 	}

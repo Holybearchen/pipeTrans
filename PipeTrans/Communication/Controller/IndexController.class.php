@@ -6,10 +6,13 @@ class IndexController extends Controller {
     public function index(){
         //显示最近联系人及其状态以及对话信息
         $m = M('msg'); 
+        
         $arr = $m->select();
+
         $receiver=$m->where("sender='Tom'")->field('tosend')->group('tosend')->select();
-        $sender=$m->where("tosend='Tom'")->field('sender')->group('tosend')->select();
-        //$this->assign('msg',$arr); 
+        $sender=$m->where("tosend='Tom'")->field('sender')->group('sender')->select();
+        // Select sender from msg where (tosend=tom) group by tosend
+        //$this->assign('msg',$arr);  
         $this->assign('receiver',$receiver);
         $this->assign('sender',$sender);
 
