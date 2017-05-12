@@ -19,13 +19,16 @@
                         <div class="mainImg picSlider">
                             <ul class="slides"> 
                                 <li>
-                                    <a  href=""><img src="__PUBLIC__/Images/buyer/index/images/1.jpg"></a>
+                                    <a  href=""><img src="__PUBLIC__/Uploads/items/<{$item.url1}>"></a>
                                 </li>
                                  <li>
-                                    <a href=""><img src="__PUBLIC__/Images/buyer/index/images/2.jpg"></a>
+                                    <a href=""><img src="__PUBLIC__/Uploads/items/<{$item.url2}>"></a>
                                 </li>
-                                 <li>
-                                    <a href=""><img src="__PUBLIC__/Images/buyer/index/images/3.jpg"></a>
+                                <li>
+                                    <a href=""><img src="__PUBLIC__/Uploads/items/<{$item.url3}>"></a>
+                                </li>
+                                <li>
+                                    <a href=""><img src="__PUBLIC__/Uploads/items/<{$item.url4}>"></a>
                                 </li>
                             </ul>
                         </div>
@@ -34,13 +37,16 @@
                             <div class="list-wrap">
                             <ul>
                                 <li>
-                                    <a href=""><img src="__PUBLIC__/Images/buyer/index/images/1.jpg"></a>
+                                    <a  href=""><img src="__PUBLIC__/Uploads/items/<{$item.url1}>"></a>
+                                </li>
+                                 <li>
+                                    <a href=""><img src="__PUBLIC__/Uploads/items/<{$item.url2}>"></a>
                                 </li>
                                 <li>
-                                    <a href=""><img src="__PUBLIC__/Images/buyer/index/images/2.jpg"></a>
+                                    <a href=""><img src="__PUBLIC__/Uploads/items/<{$item.url3}>"></a>
                                 </li>
                                 <li>
-                                    <a href=""><img src="__PUBLIC__/Images/buyer/index/images/3.jpg"></a>
+                                    <a href=""><img src="__PUBLIC__/Uploads/items/<{$item.url4}>"></a>
                                 </li>
                             </ul>
                             </div>
@@ -125,6 +131,7 @@
                     <div class="seller-info">
                         <div class="head">
                             <{$item.username}>
+                            <span> <a href="__APP__/Communication/Index/" target="_balnk">联系商家</a> </span>
                         </div>
                         <div class="body">
                             <div class="score-sum">
@@ -180,6 +187,14 @@
                                 <li>商品名称:啊大叔大叔的</li>
 
                             </ul>
+                        </div>
+                        <div class="pic">
+                            <div class="img-box">
+                                <img src="__PUBLIC__/Uploads/items/<{$item.url1}>">
+                                <img src="__PUBLIC__/Uploads/items/<{$item.url2}>">
+                                <img src="__PUBLIC__/Uploads/items/<{$item.url3}>">
+                                <img src="__PUBLIC__/Uploads/items/<{$item.url4}>">
+                            </div>
                         </div>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="profile">
