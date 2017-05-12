@@ -82,32 +82,5 @@ class StatisticsController extends Controller {
 			$this->redirect('User/login');
 		}
 	}
-
-	public function statisticsItem() {
-		if (isset($_SESSION['username']) && $_SESSION['username'] != '')
-		{
-			$sellerid = $_SESSION['userid'];
-
-			$startdate = I('post.startdate');
-			$enddate = I('post.enddate');
-
-			if ($startdate == '')
-			{
-				$date1 = date("Y");
-			}
-			else
-			{
-				$date1 = $startdate;
-			}
-
-			$this->display();
-		}
-		else
-		{
-			$this->redirect('User/login');
-		}
-	}
-
-	
 }
 ?>

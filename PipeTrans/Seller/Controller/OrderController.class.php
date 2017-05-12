@@ -105,18 +105,26 @@ class OrderController extends Controller {
             $order = M('Orderdetail');
             $where['sellerid'] = $sellerid;
             $where['pipe_order.orderid'] = $orderid;
+            $where['status'] = 0;
+            $where['dstatus'] = 0;
 
             $rst = $order->join('__ORDER__ ON __ORDERDETAIL__.orderid = __ORDER__.orderid')
                     ->join('__ITEM__ ON __ORDERDETAIL__.itemid = __ITEM__.itemid')
                     ->where($where)->find();
+            if ($rst == '')
+            {
+                $this->error('订单不存在，可能被撤销！', 'index');
+            }
+            else
+            {
+                $m = M('Orderdetail');
+                $map['orderid'] = $orderid;
+                $r = $m->where($map)->find();
 
-            $m = M('Orderdetail');
-            $map['orderid'] = $orderid;
-            $r = $m->where($map)->find();
-
-            $this->assign('order', $r);
-        	$this->assign('detail', $rst);
-        	$this->display();
+                $this->assign('order', $r);
+            	$this->assign('detail', $rst);
+            	$this->display();
+            }
         }
         else
         {

@@ -47,48 +47,57 @@ class UserController extends Controller {
 		$email = $_POST['email'];
     	$password = $_POST['password'];
 		$username = $_POST['username'];
+		$license = $_POST['license'];
 		$name = $_POST['name'];
 		$idnumber = $_POST['idnumber'];
 
-		$m = M('Seller');
-		$where['email'] = $email;
-		$arr=$m->where($where)->find();
-
-		if ($arr)
+		if ($email == '' || $password == '' || $username == '' || $license == '' || $name == '' || $idnumber == '')
 		{
-			$this->error('注册失败，该邮箱已注册！');
+			$this->error('请完善信息！！！');
 		}
 		else
 		{
-			$data['email'] = $email;
-			$data['username'] = $username;
-			$data['area'] = '';
-			$data['password'] = md5($password);
-			$data['phonenumber'] = '';
-			$data['status'] = 0;
-			$data['idnumber'] = 0;
-			$data['name'] = $name;
-			$data['level'] = 0;
+			$m = M('Seller');
+			$where['email'] = $email;
+			$arr=$m->where($where)->find();
 
-			$upload = new \Think\Upload();
-			$upload->maxSize = 3145728;
-			$upload->exts = array('jpg', 'gif', 'png', 'jpeg');
-			$upload->rootPath = './Public/Uploads/Sellers/';
-			$upload->autoSub  =  true;
-			$upload->subName = $photo;
-
-			$info = $upload->uploadOne($_FILES['photo']);
-			if (!$info)
+			if ($arr)
 			{
-				$this->error('注册失败，请重试！');
+				$this->error('注册失败，该邮箱已注册！');
 			}
 			else
 			{
-				$data['url'] = $info['savename'];
-				
+				$data['email'] = $email;
+				$data['username'] = $username;
+				$data['license'] = $license;
+				$data['area'] = '';
+				$data['password'] = md5($password);
+				$data['phonenumber'] = '';
+				$data['status'] = 0;
+				$data['idnumber'] = 0;
+				$data['name'] = $name;
+				$data['level'] = 0;
 
-				$addedid = $m->add($data);
-				$this->success('注册成功，请等待审核结果！', 'login');
+				$upload = new \Think\Upload();
+				$upload->maxSize = 3145728;
+				$upload->exts = array('jpg', 'gif', 'png', 'jpeg');
+				$upload->rootPath = './Public/Uploads/Sellers/';
+				$upload->autoSub  =  true;
+				$upload->subName = $photo;
+
+				$info = $upload->uploadOne($_FILES['photo']);
+				if (!$info)
+				{
+					$this->error($upload->getError());
+				}
+				else
+				{
+					$data['url'] = $info['savename'];
+					
+
+					$addedid = $m->add($data);
+					$this->success('注册成功，请等待审核结果！', 'login');
+				}
 			}
 		}		
 	}

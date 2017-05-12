@@ -78,43 +78,50 @@ class ItemController extends Controller {
 		$promise = I('post.promise');
 		$itemfreight = I('post.itemfreight');
 
-		$item = M('Item');
-		$data['sellerid'] = $sellerid;
-		$data['itemname'] = $name;
-		$data['send-area'] = $sendarea;
-		$data['standard'] = $std;
-		$data['price'] = (double)$price;
-		$data['itemquantity'] = (int)$quantity;
-		$data['introduction'] = $intro;
-		$data['promise'] = $promise;
-		$data['score'] = 5;
-		$data['date'] = strtotime(date('Y-m-d H:i:s'));
-		$data['itemfreight'] = (double)$itemfreight;
-
-		$upload = new \Think\Upload();
-		$upload->maxSize = 3145728;
-		$upload->exts = array('jpg', 'gif', 'png', 'jpeg');
-		$upload->rootPath = './Public/Uploads/Items/';
-		$upload->autoSub  =  true;
-		$upload->subName = $photo;
-	
-		$info = $upload->upload();
-		
-		if (!$info)
+		if ($name == '' || $std == '' || $price == '' || $quantity == '' || $sendarea == '' || $intro == '' || $promise == '' || $itemfreight == '')
 		{
-			$this->error($upload->getError());
+			$this->error('请完善信息!!!');
 		}
 		else
 		{
-			$data['url1'] = $info[0]['savename'];
-			$data['url2'] = $info[1]['savename'];
-			$data['url3'] = $info[2]['savename'];
-			$data['url4'] = $info[3]['savename'];
-			
+			$item = M('Item');
+			$data['sellerid'] = $sellerid;
+			$data['itemname'] = $name;
+			$data['send-area'] = $sendarea;
+			$data['standard'] = $std;
+			$data['price'] = (double)$price;
+			$data['itemquantity'] = (int)$quantity;
+			$data['introduction'] = $intro;
+			$data['promise'] = $promise;
+			$data['score'] = 5;
+			$data['date'] = strtotime(date('Y-m-d H:i:s'));
+			$data['itemfreight'] = (double)$itemfreight;
 
-			$addedid = $item->add($data);
-			$this->redirect('itemIndex');
-		}		
+			$upload = new \Think\Upload();
+			$upload->maxSize = 3145728;
+			$upload->exts = array('jpg', 'gif', 'png', 'jpeg');
+			$upload->rootPath = './Public/Uploads/Items/';
+			$upload->autoSub  =  true;
+			$upload->subName = $photo;
+		
+			$info = $upload->upload();
+			
+			if (!$info)
+			{
+				$this->error($upload->getError());
+			}
+			else
+			{
+				$data['url1'] = $info[0]['savename'];
+				$data['url2'] = $info[1]['savename'];
+				$data['url3'] = $info[2]['savename'];
+				$data['url4'] = $info[3]['savename'];
+				
+
+				$addedid = $item->add($data);
+				$this->redirect('itemIndex');
+			}
+		}	
 	}
 
 	public function deleteitem() {
@@ -132,6 +139,7 @@ class ItemController extends Controller {
 		$price = I('price');
 		$quantity = I('quantity');
 		$address = I('address');
+		$itemfreight = I('itemfreight');
 		$promise = I('promise');
 		$newitem = I('newitem');
 
@@ -150,6 +158,7 @@ class ItemController extends Controller {
 		$data['itemquantity'] = $itemquantity;
 		$data['send-area'] = $address;
 		$data['promise'] = $promise;
+		$data['itemfreight'] = $itemfreight;
 		$where['itemid'] = $itemid;
 
 		$count = $item->where($where)->save($data);
